@@ -175,6 +175,23 @@ function renderitzarXifres(contenidorId) {
   `).join('');
 }
 
+/* --- Botó tornar a dalt --- */
+(function () {
+  const boto = document.createElement('button');
+  boto.className = 'boto-tornar-dalt';
+  boto.setAttribute('aria-label', 'Tornar a dalt');
+  boto.innerHTML = '↑';
+  document.body.appendChild(boto);
+
+  window.addEventListener('scroll', () => {
+    boto.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  boto.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
 /* --- Inicialitzar en carregar --- */
 document.addEventListener('DOMContentLoaded', () => {
   // Notícies pàgina d'inici (màx. 6, ordenades)
