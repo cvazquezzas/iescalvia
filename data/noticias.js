@@ -25,7 +25,7 @@ const NOTICIES = [
     data: "10/04/2025",
     categoria: "Centre",
     resum: "Dos alumnes del nostre institut han passat a la fase final de l'Olimpíada de Llengua Catalana. Enhorabona a ells i als seus professors!",
-    imatge: "",
+    imatge: "img/noticies/olimpiada-llengua.svg",
     url: "",
     destacada: true
   },
@@ -35,7 +35,7 @@ const NOTICIES = [
     data: "04/04/2025",
     categoria: "FP",
     resum: "Ja estan publicades les llistes provisionals d'alumnes admesos als cicles formatius de grau superior per al curs 2025-26.",
-    imatge: "",
+    imatge: "img/noticies/fp-admesos.svg",
     url: "",
     destacada: true
   },
@@ -45,7 +45,7 @@ const NOTICIES = [
     data: "28/03/2025",
     categoria: "Projectes",
     resum: "L'alumnat del centre ha presentat el primer número de la revista escolar 'Son Pillo Exprés'. Un projecte impulsat des del departament de llengua.",
-    imatge: "",
+    imatge: "img/noticies/revista-son-pillo.svg",
     url: "",
     destacada: false
   },
@@ -85,7 +85,7 @@ const NOTICIES = [
     data: "10/02/2025",
     categoria: "FP",
     resum: "L'alumnat de cuina i restauració ha inaugurat la nova temporada del restaurant pedagògic. Podeu fer reserves trucant al centre.",
-    imatge: "",
+    imatge: "img/noticies/restaurant-pedagogic.svg",
     url: "",
     destacada: false
   },
@@ -95,7 +95,7 @@ const NOTICIES = [
     data: "20/01/2025",
     categoria: "Erasmus+",
     resum: "Un grup d'alumnes ha participat en un intercanvi Erasmus+ a Lisboa. Compartim la seva experiència i les activitats realitzades durant la visita.",
-    imatge: "",
+    imatge: "img/noticies/erasmus-portugal.svg",
     url: "",
     destacada: false
   }

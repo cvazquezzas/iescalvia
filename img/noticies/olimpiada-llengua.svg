@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a5c"/>
+      <stop offset="100%" style="stop-color:#2e86c1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#g)"/>
+
+  <!-- Cercles decoratius de fons -->
+  <circle cx="680" cy="80" r="120" fill="white" fill-opacity="0.04"/>
+  <circle cx="720" cy="340" r="80" fill="white" fill-opacity="0.05"/>
+  <circle cx="100" cy="320" r="90" fill="white" fill-opacity="0.04"/>
+
+  <!-- Llibre obert -->
+  <g transform="translate(320, 100)">
+    <!-- Pàgina esquerra -->
+    <path d="M0,20 Q-80,10 -160,20 L-160,180 Q-80,170 0,180 Z" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.3" stroke-width="1.5"/>
+    <!-- Pàgina dreta -->
+    <path d="M0,20 Q80,10 160,20 L160,180 Q80,170 0,180 Z" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.3" stroke-width="1.5"/>
+    <!-- Línia central -->
+    <line x1="0" y1="20" x2="0" y2="180" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+    <!-- Línies de text simulades - esquerra -->
+    <line x1="-140" y1="60" x2="-20" y2="60" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="-140" y1="80" x2="-20" y2="80" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="-140" y1="100" x2="-20" y2="100" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="-140" y1="120" x2="-60" y2="120" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <!-- Línies de text simulades - dreta -->
+    <line x1="20" y1="60" x2="140" y2="60" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="20" y1="80" x2="140" y2="80" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="20" y1="100" x2="140" y2="100" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="20" y1="120" x2="100" y2="120" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+  </g>
+
+  <!-- Estrella / trofeu -->
+  <g transform="translate(600, 90)">
+    <polygon points="0,-40 10,-12 40,-12 18,8 28,36 0,18 -28,36 -18,8 -40,-12 -10,-12" fill="#f0c000" fill-opacity="0.9"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="310" font-family="Georgia, serif" font-size="28" fill="white" text-anchor="middle" font-weight="bold" letter-spacing="1">Olimpíada de Llengua Catalana</text>
+  <text x="400" y="345" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7" text-anchor="middle">IES Calvià · Centre</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003399"/>
+      <stop offset="100%" style="stop-color:#0055cc"/>
+    </linearGradient>
+    <linearGradient id="cel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#001a66"/>
+      <stop offset="100%" style="stop-color:#003399"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#cel)"/>
+
+  <!-- Ondes del mar -->
+  <path d="M0,300 Q200,260 400,300 Q600,340 800,300 L800,400 L0,400 Z" fill="#003399" fill-opacity="0.5"/>
+  <path d="M0,320 Q200,280 400,320 Q600,360 800,320 L800,400 L0,400 Z" fill="#0044bb" fill-opacity="0.4"/>
+
+  <!-- Estrelles UE (cercle) -->
+  <g transform="translate(400, 160)">
+    <g opacity="0.85">
+      <!-- 12 estrelles en cercle -->
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(0,-80)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(40,-69.3)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(69.3,-40)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(80,0)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(69.3,40)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(40,69.3)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(0,80)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(-40,69.3)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(-69.3,40)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(-80,0)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(-69.3,-40)"/>
+      <polygon points="0,-6 1.4,-2 5,-2 2.2,0.8 3.4,5 0,2.8 -3.4,5 -2.2,0.8 -5,-2 -1.4,-2" fill="#f0c000" transform="translate(-40,-69.3)"/>
+    </g>
+  </g>
+
+  <!-- Avió de paper -->
+  <g transform="translate(640, 100) rotate(-15)">
+    <path d="M0,0 L60,20 L0,40 L10,20 Z" fill="white" fill-opacity="0.7"/>
+    <path d="M0,0 L10,20 L0,40 L-10,20 Z" fill="white" fill-opacity="0.4"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="315" font-family="Georgia, serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold" letter-spacing="0.5">Erasmus+ a Lisboa — Crònica de l'intercanvi</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="16" fill="#f0c000" fill-opacity="0.9" text-anchor="middle">IES Calvià · Erasmus+</text>
+</svg>

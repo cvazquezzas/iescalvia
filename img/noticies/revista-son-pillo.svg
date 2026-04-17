@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d3b3e"/>
+      <stop offset="100%" style="stop-color:#16a085"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#g)"/>
+
+  <!-- Fons decoratiu -->
+  <circle cx="680" cy="60" r="130" fill="white" fill-opacity="0.04"/>
+  <circle cx="80" cy="340" r="110" fill="white" fill-opacity="0.04"/>
+
+  <!-- Portada de revista -->
+  <g transform="translate(400, 180)">
+    <!-- Portada principal -->
+    <rect x="-110" y="-140" width="220" height="280" rx="4" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+    <!-- Capçalera de la revista -->
+    <rect x="-110" y="-140" width="220" height="50" rx="4" fill="white" fill-opacity="0.18"/>
+    <text x="0" y="-108" font-family="Georgia, serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold" letter-spacing="2">SON PILLO EXPRÉS</text>
+    <!-- Imatge interior simulada -->
+    <rect x="-85" y="-75" width="170" height="90" rx="3" fill="white" fill-opacity="0.08"/>
+    <!-- Línies de text -->
+    <line x1="-80" y1="30" x2="80" y2="30" stroke="white" stroke-opacity="0.3" stroke-width="2"/>
+    <line x1="-80" y1="48" x2="80" y2="48" stroke="white" stroke-opacity="0.3" stroke-width="2"/>
+    <line x1="-80" y1="66" x2="60" y2="66" stroke="white" stroke-opacity="0.3" stroke-width="2"/>
+    <!-- Número 1 -->
+    <circle cx="70" cy="-108" r="14" fill="#e74c3c" fill-opacity="0.8"/>
+    <text x="70" y="-103" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Nº1</text>
+  </g>
+
+  <!-- Ploma de redacció -->
+  <g transform="translate(620, 100) rotate(-30)">
+    <path d="M0,-60 Q20,0 0,60 Q-5,0 0,-60Z" fill="white" fill-opacity="0.2"/>
+    <path d="M0,60 L-3,80 L0,75 L3,80 Z" fill="white" fill-opacity="0.4"/>
+    <line x1="0" y1="-30" x2="0" y2="60" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="316" font-family="Georgia, serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">'Son Pillo Exprés' — Revista Escolar</text>
+  <text x="400" y="351" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7" text-anchor="middle">IES Calvià · Projectes</text>
+</svg>
