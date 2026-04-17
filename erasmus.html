@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Programa Erasmus+ de l'IES Calvià: intercanvis europeus, mobilitats, projectes internacionals i oportunitats per als alumnes.">
+  <title>Erasmus+ — IES Calvià</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .erasmus-hero {
+      background: linear-gradient(135deg, #003399 0%, #0052cc 60%, #0066ff 100%);
+      color: white;
+      padding: var(--espai-xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .erasmus-hero::before {
+      content: '🇪🇺';
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10rem;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .erasmus-hero h1 { color: white; margin-bottom: 0.5rem; }
+    .erasmus-hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 650px; }
+
+    .pais-card {
+      background: var(--color-blanc);
+      border-radius: var(--radius-gran);
+      box-shadow: var(--ombra-card);
+      border: 1px solid var(--color-vora);
+      padding: var(--espai-lg);
+      text-align: center;
+      transition: all var(--transicio);
+    }
+    .pais-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .pais-bandera { font-size: 3rem; margin-bottom: 0.5rem; }
+    .pais-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .pais-card p { font-size: 0.85rem; color: var(--color-text-suau); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- BANER SUPERIOR -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓ -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link">Estudis <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">Alumnes i famílies <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link">Centre <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="centre.html#qui-som">Qui som</a></li>
+            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
+            <li><a href="centre.html#departaments">Departaments</a></li>
+            <li><a href="centre.html#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="centre.html#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link">Projectes <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
+            <li><a href="projectes.html#educatius">Programes educatius</a></li>
+            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
+            <li><a href="projectes.html#biblioteca">Biblioteca</a></li>
+            <li><a href="projectes.html#extraescolars">Activitats extraescolars</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a></li>
+        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial actiu">Erasmus+</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CAPÇALERA ERASMUS -->
+  <header class="erasmus-hero">
+    <div class="contenidor">
+      <p class="engruna" style="color:rgba(255,255,255,0.6)"><a href="index.html" style="color:rgba(255,255,255,0.7)">Inici</a> › Erasmus+</p>
+      <h1>Erasmus+</h1>
+      <p>Connectem l'IES Calvià amb Europa. Intercanvis, mobilitats i projectes internacionals per a l'alumnat i el professorat.</p>
+      <div style="margin-top:1.5rem">
+        <span style="background:rgba(255,255,255,0.15);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600">
+          🇪🇺 Projecte cofinançat per la Unió Europea
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUÈ ÉS ERASMUS+ -->
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+      <div class="graella-cards graella-2">
+        <div>
+          <span class="etiqueta-seccio">El programa</span>
+          <h2 style="margin-top:0.5rem">Què és Erasmus+?</h2>
+          <p>
+            Erasmus+ és el programa de la Unió Europea per a l'educació, la formació, la joventut i l'esport.
+            L'IES Calvià participa activament en el programa, oferint oportunitats d'intercanvi i mobilitat
+            internacional tant per a l'alumnat com per al professorat.
+          </p>
+          <p>
+            A través d'Erasmus+, els nostres alumnes poden realitzar pràctiques de FP en empreses europees,
+            participar en intercanvis escolars i viure experiències internacionals que enriqueixen la seva
+            formació acadèmica i personal.
+          </p>
+          <div class="info-box" style="margin-top:1rem">
+            📞 Per a més informació sobre el programa Erasmus+ al nostre centre, contacta amb el
+            <strong>coordinador/a Erasmus</strong> a través de la secretaria: <a href="tel:971139200">971 139 200</a>
+          </div>
+        </div>
+        <div>
+          <div class="graella-cards graella-2" style="gap:1rem">
+            <div class="card" style="text-align:center">
+              <div class="card-cos">
+                <div style="font-size:2.5rem;margin-bottom:0.5rem">✈️</div>
+                <h4>Mobilitats</h4>
+                <p style="font-size:0.85rem;color:var(--color-text-suau)">Estades a empreses i centres europeus</p>
+              </div>
+            </div>
+            <div class="card" style="text-align:center">
+              <div class="card-cos">
+                <div style="font-size:2.5rem;margin-bottom:0.5rem">🤝</div>
+                <h4>Intercanvis</h4>
+                <p style="font-size:0.85rem;color:var(--color-text-suau)">Visites i intercanvis amb centres socis</p>
+              </div>
+            </div>
+            <div class="card" style="text-align:center">
+              <div class="card-cos">
+                <div style="font-size:2.5rem;margin-bottom:0.5rem">🌐</div>
+                <h4>Projectes</h4>
+                <p style="font-size:0.85rem;color:var(--color-text-suau)">Projectes educatius multinacionals</p>
+              </div>
+            </div>
+            <div class="card" style="text-align:center">
+              <div class="card-cos">
+                <div style="font-size:2.5rem;margin-bottom:0.5rem">📜</div>
+                <h4>Certificació</h4>
+                <p style="font-size:0.85rem;color:var(--color-text-suau)">Certificat Europass de mobilitat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINACIONS -->
+  <section class="seccio">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">Destinacions</span>
+        <h2>Països col·laboradors</h2>
+        <p>Centres i empreses europees amb les quals hem establert col·laboració.</p>
+      </div>
+      <div class="graella-cards graella-4">
+        <div class="pais-card">
+          <div class="pais-bandera">🇵🇹</div>
+          <h3>Portugal</h3>
+          <p>Intercanvis i pràctiques de FP</p>
+        </div>
+        <div class="pais-card">
+          <div class="pais-bandera">🇮🇹</div>
+          <h3>Itàlia</h3>
+          <p>Mobilitat en hostaleria i turisme</p>
+        </div>
+        <div class="pais-card">
+          <div class="pais-bandera">🇩🇪</div>
+          <h3>Alemanya</h3>
+          <p>Pràctiques d'administració i finances</p>
+        </div>
+        <div class="pais-card">
+          <div class="pais-bandera">🇫🇷</div>
+          <h3>França</h3>
+          <p>Intercanvis culturals i lingüístics</p>
+        </div>
+      </div>
+      <div class="avis" style="margin-top:2rem">
+        ✏️ <strong>Nota de manteniment:</strong> Actualitza els països i descripcions amb les destinacions reals del programa actual.
+      </div>
+    </div>
+  </section>
+
+  <!-- COM PARTICIPAR -->
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+      <div class="seccio-cap" style="text-align:left">
+        <span class="etiqueta-seccio">Participa</span>
+        <h2>Com pots participar</h2>
+      </div>
+      <div class="graella-cards graella-3">
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">👨‍🎓</div>
+            <h3>Alumnat de FP</h3>
+            <p>Pots realitzar les pràctiques de FP (FCT) en una empresa europea. Les estades solen durar entre 2 i 3 mesos.</p>
+            <ul style="font-size:0.88rem;color:var(--color-text-suau);margin-top:0.75rem;list-style:disc;padding-left:1.2rem;line-height:2">
+              <li>Obertes a alumnes de FP Mitjà i Superior</li>
+              <li>Subsidi econòmic per despeses</li>
+              <li>Certificat Europass de mobilitat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📚</div>
+            <h3>Alumnat d'ESO i Batx.</h3>
+            <p>Participació en projectes eTwinning i intercanvis amb centres europeus. Activitats de col·laboració internacional en línia i presencial.</p>
+            <ul style="font-size:0.88rem;color:var(--color-text-suau);margin-top:0.75rem;list-style:disc;padding-left:1.2rem;line-height:2">
+              <li>Projectes col·laboratius europeus</li>
+              <li>Visites d'intercanvi</li>
+              <li>Millora d'idiomes estrangers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">👩‍🏫</div>
+            <h3>Professorat</h3>
+            <p>El professorat pot participar en estades de formació i observació en centres europeus per millorar les seves pràctiques docents.</p>
+            <ul style="font-size:0.88rem;color:var(--color-text-suau);margin-top:0.75rem;list-style:disc;padding-left:1.2rem;line-height:2">
+              <li>Job shadowing a centres europeus</li>
+              <li>Cursos de formació a l'estranger</li>
+              <li>Intercanvi de bones pràctiques</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:2rem">
+        <a href="mailto:ies.calvia@educacio.caib.es?subject=Informació Erasmus+" class="btn btn-primari">
+          Contactar amb el coordinador Erasmus+
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+            <li><a href="erasmus.html">Erasmus+</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
+            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
+            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
+            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

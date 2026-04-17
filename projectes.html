@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projectes de l'IES Calvià: Conviu, Coedu, EDEMIND, Salut, Mediambient, Comissió Lingüística, Biblioteca i molt més.">
+  <title>Projectes — IES Calvià</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .projecte-card {
+      background: var(--color-blanc);
+      border-radius: var(--radius-gran);
+      box-shadow: var(--ombra-card);
+      border: 1px solid var(--color-vora);
+      padding: var(--espai-lg);
+      transition: all var(--transicio);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .projecte-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .projecte-cap {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .projecte-icona {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .projecte-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.15rem;
+    }
+    .projecte-card .projecte-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      padding: 0.15rem 0.55rem;
+      border-radius: 20px;
+    }
+    .projecte-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-suau);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .projecte-detalls {
+      background: var(--color-fons);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+    }
+    .projecte-detalls ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .projecte-detalls ul li::before {
+      content: '→ ';
+      color: var(--color-secundari);
+      font-weight: 700;
+    }
+    .projecte-contacte {
+      font-size: 0.82rem;
+      color: var(--color-text-suau);
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      border-top: 1px solid var(--color-vora);
+      padding-top: 0.75rem;
+    }
+    .projecte-contacte a { color: var(--color-secundari); font-weight: 600; }
+
+    /* Colors per categoria */
+    .cat-benestar   { background: rgba(39,174,96,0.12); }
+    .cat-benestar .projecte-icona { background: linear-gradient(135deg,#27ae60,#1e8449); color:white; }
+    .cat-benestar .projecte-tag   { background: rgba(39,174,96,0.12); color: #1e8449; }
+
+    .cat-educatiu   { background: rgba(41,128,185,0.08); }
+    .cat-educatiu .projecte-icona { background: linear-gradient(135deg,#2980b9,#1a3a5c); color:white; }
+    .cat-educatiu .projecte-tag   { background: rgba(41,128,185,0.12); color: #1a5276; }
+
+    .cat-llengua    { background: rgba(142,68,173,0.08); }
+    .cat-llengua .projecte-icona  { background: linear-gradient(135deg,#8e44ad,#6c3483); color:white; }
+    .cat-llengua .projecte-tag    { background: rgba(142,68,173,0.1); color: #6c3483; }
+
+    .cat-serveis    { background: rgba(232,168,56,0.08); }
+    .cat-serveis .projecte-icona  { background: linear-gradient(135deg,#e8a838,#c47f00); color:white; }
+    .cat-serveis .projecte-tag    { background: rgba(232,168,56,0.15); color: #a06800; }
+
+    .cat-cultura    { background: rgba(231,76,60,0.07); }
+    .cat-cultura .projecte-icona  { background: linear-gradient(135deg,#e74c3c,#c0392b); color:white; }
+    .cat-cultura .projecte-tag    { background: rgba(231,76,60,0.1); color: #c0392b; }
+
+    .seccio-projectes { padding: 3rem 0 1rem; }
+    .seccio-projectes + .seccio-projectes { padding-top: 0; }
+
+    .grup-titol {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-vora);
+    }
+    .grup-titol h2 { margin: 0; font-size: 1.35rem; }
+    .grup-titol .num-badge {
+      background: var(--color-primari); color: white;
+      font-size: 0.8rem; font-weight: 700;
+      padding: 0.2rem 0.6rem; border-radius: 20px;
+    }
+
+    .premi-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: rgba(232,168,56,0.15);
+      border: 1px solid rgba(232,168,56,0.4);
+      color: #a06800; font-size: 0.78rem; font-weight: 700;
+      padding: 0.2rem 0.65rem; border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANER SUPERIOR -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓ -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link">Estudis <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">Alumnes i famílies <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link">Centre <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="centre.html#qui-som">Qui som</a></li>
+            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
+            <li><a href="centre.html#departaments">Departaments</a></li>
+            <li><a href="centre.html#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="centre.html#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link actiu">Projectes <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="#benestar">Benestar i convivència</a></li>
+            <li><a href="#educatius">Programes educatius</a></li>
+            <li><a href="#llengua">Llengua i cultura</a></li>
+            <li><a href="#serveis">Serveis del centre</a></li>
+            <li><a href="#extraescolars">Activitats i cultura</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a></li>
+        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CAPÇALERA -->
+  <header class="pagina-hero">
+    <div class="contenidor">
+      <p class="engruna"><a href="index.html">Inici</a> › Projectes</p>
+      <h1>Projectes del centre</h1>
+      <p>Més de 15 iniciatives actives que fan de l'IES Calvià un centre viu, inclusiu i compromès</p>
+    </div>
+  </header>
+
+  <!-- ÍNDEX RÀPID -->
+  <section style="background:var(--color-blanc);padding:1.5rem 0;border-bottom:1px solid var(--color-vora)">
+    <div class="contenidor">
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center">
+        <span style="font-size:0.85rem;font-weight:700;color:var(--color-text-suau)">Salta a:</span>
+        <a href="#benestar" class="btn btn-secundari" style="padding:0.35rem 0.9rem;font-size:0.82rem">💚 Benestar</a>
+        <a href="#educatius" class="btn btn-secundari" style="padding:0.35rem 0.9rem;font-size:0.82rem">📡 Programes</a>
+        <a href="#llengua" class="btn btn-secundari" style="padding:0.35rem 0.9rem;font-size:0.82rem">🗣️ Llengua</a>
+        <a href="#serveis" class="btn btn-secundari" style="padding:0.35rem 0.9rem;font-size:0.82rem">🔧 Serveis</a>
+        <a href="#extraescolars" class="btn btn-secundari" style="padding:0.35rem 0.9rem;font-size:0.82rem">🎭 Cultura</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="contenidor">
+
+    <!-- =========================================
+         1. BENESTAR I CONVIVÈNCIA
+         ========================================= -->
+    <section class="seccio-projectes" id="benestar">
+      <div class="grup-titol">
+        <span style="font-size:1.8rem">💚</span>
+        <h2>Benestar i convivència</h2>
+        <span class="num-badge">8 projectes</span>
+      </div>
+      <div class="graella-cards graella-2">
+
+        <!-- CONVIU -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-benestar" style="background:linear-gradient(135deg,#27ae60,#1e8449)">🤝</div>
+            <div>
+              <span class="projecte-tag cat-benestar">Convivència</span>
+              <h3>Conviu</h3>
+            </div>
+          </div>
+          <p>Equip docent dedicat a fomentar la convivència positiva al centre. Aplica <strong>pràctiques restauratives</strong> que transformen els conflictes en oportunitats d'aprenentatge per a tota la comunitat educativa. La convivència es concep com "una responsabilitat compartida".</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Tallers de pràctiques restauratives per a famílies (horari vespertí)</li>
+              <li>Reunions pedagògiques amb el professorat</li>
+              <li>Tallers específics per nivells segons necessitats detectades</li>
+              <li>Atenció presencial durant horari lectiu</li>
+            </ul>
+          </div>
+          <div class="projecte-contacte">
+            <span>✉️ <a href="mailto:conviu@iescalvia.com">conviu@iescalvia.com</a></span>
+          </div>
+        </div>
+
+        <!-- COEDU -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#e91e8c,#c2185b);color:white">⚖️</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(233,30,140,0.1);color:#c2185b">Igualtat</span>
+              <h3>Coedu — Comissió de Coeducació</h3>
+            </div>
+          </div>
+          <p>Promou la <strong>igualtat de gènere</strong> i fomenta una convivència respectuosa entre l'alumnat. Impulsa iniciatives de sensibilització, elimina estereotips i crea un entorn educatiu inclusiu i lliure de discriminació.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>~70 agents alumnes Coedu (aprox. 2 per classe) com a referents d'igualtat</li>
+              <li>Commemoració del 25N — Dia contra la Violència cap a la Dona</li>
+              <li>Campanya "Feminisme a l'escola" amb centres de Balears</li>
+              <li>Tallers, conferències i debats sobre igualtat de gènere</li>
+              <li>Revisió de materials educatius per eliminar biaixos de gènere</li>
+            </ul>
+          </div>
+          <div class="projecte-contacte">
+            <span>✉️ <a href="mailto:coeducacio@iescalvia.com">coeducacio@iescalvia.com</a></span>
+            <span>📷 <a href="https://www.instagram.com/coedu_iescalvia" target="_blank" rel="noopener">@coedu_iescalvia</a></span>
+          </div>
+        </div>
+
+        <!-- SALUT -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#00bcd4,#0097a7);color:white">💊</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(0,188,212,0.1);color:#00838f">Salut</span>
+              <h3>Comissió de Salut</h3>
+            </div>
+          </div>
+          <p>Pont entre el centre educatiu i els serveis de salut locals. Promou entorns escolars més saludables i el benestar integral de l'alumnat, atenent aspectes físics, mentals i socials.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li><strong>Alerta Escolar</strong>: seguiment d'alumnes amb malalties cròniques i medicació</li>
+              <li><strong>Consulta Jove</strong>: espai d'orientació sobre salut física, mental i social</li>
+              <li>Sessions formatives per a professorat i alumnat sobre hàbits saludables</li>
+              <li>Campanyes periòdiques de salut pública i prevenció</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EDEMIND -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#7c4dff,#512da8);color:white">🧠</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(124,77,255,0.1);color:#512da8">Emocions · Mindfulness</span>
+              <h3>EDEMIND</h3>
+            </div>
+          </div>
+          <p>Projecte d'<strong>educació emocional i mindfulness</strong> en funcionament des del curs 2016-17. Combina les 5 competències emocionals de Rafael Bisquerra amb el programa TREVA de meditació i plena atenció en una aula específica. Des del 2021-22, "Edemind" és una <strong>assignatura curricular</strong> de 1r ESO fins a FP i Batxillerat.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Consciència, regulació i autonomia emocional</li>
+              <li>Habilitats socio-emocionals i competències per al benestar</li>
+              <li>"Dies Edemind" — tallers conjunts amb famílies (1r i 3r trimestre)</li>
+              <li>Iniciatives de reducció d'estrès per al professorat</li>
+              <li>Programa municipal "What's Up, com vas de salut mental?" (2024-25)</li>
+            </ul>
+          </div>
+          <div class="projecte-contacte">
+            <span class="premi-badge">🏆 Premi del Ministeri d'Educació al Benestar Emocional 2023</span>
+          </div>
+        </div>
+
+        <!-- PREVENCIÓ RISCOS LABORALS -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#ff9800,#e65100);color:white">⛑️</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(255,152,0,0.12);color:#e65100">Seguretat</span>
+              <h3>Prevenció de Riscos Laborals</h3>
+            </div>
+          </div>
+          <p>Coordina la salut laboral i la seguretat a tot el centre educatiu, garantint el compliment de les normatives de seguretat per a personal i alumnat, amb especial atenció al departament d'hostaleria.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Control APPCC (temperatures) a les instal·lacions d'hostaleria</li>
+              <li>Gestió de plagues (rosegadors i insectes)</li>
+              <li>Protocols de prevenció de la legionel·la</li>
+              <li>Manteniment general de les instal·lacions</li>
+              <li>Simulacres d'emergència i pla d'autoprotecció</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MEDIAMBIENT -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#4caf50,#1b5e20);color:white">🌿</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(76,175,80,0.1);color:#1b5e20">Sostenibilitat</span>
+              <h3>Mediambient</h3>
+            </div>
+          </div>
+          <p>Centralitza totes les iniciatives ambientals i de sostenibilitat del centre. Engloba sis programes actius que promouen la consciència ecològica entre l'alumnat i la comunitat educativa.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li><strong>Calvianers sostenibles</strong> — pràctiques sostenibles a la comunitat escolar</li>
+              <li><strong>Hort escolar</strong> — cultiu i aprenentatge pràctic</li>
+              <li><strong>Turisme sostenible</strong> — educació en turisme responsable</li>
+              <li><strong>Programa de centres ecoambientals</strong> — certificació mediambiental</li>
+              <li><strong>Millora d'espais exteriors</strong> — rehabilitació dels patis</li>
+              <li><strong>Aula acollidora</strong> — espais inclusius i respectuosos</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ESPAI CREATIU -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#f06292,#ad1457);color:white">🎨</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(240,98,146,0.1);color:#ad1457">Creativitat</span>
+              <h3>Espai Creatiu</h3>
+            </div>
+          </div>
+          <p>Grup de treball format per membres de la comunitat educativa que dissenya i implementa espais i activitats per fomentar el <strong>pensament creatiu, la innovació i l'expressió personal</strong> de l'alumnat en un entorn enriquidor i inclusiu.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Disseny d'espais que afavoreixin la creativitat al centre</li>
+              <li>Supervisió de projectes d'expressió personal i innovació</li>
+              <li>Coordinació amb activitats extraescolars i arts escèniques</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ACTES SOLIDARIS -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona" style="background:linear-gradient(135deg,#ef5350,#b71c1c);color:white">❤️</div>
+            <div>
+              <span class="projecte-tag" style="background:rgba(239,83,80,0.1);color:#b71c1c">Solidaritat</span>
+              <h3>Actes Solidaris</h3>
+            </div>
+          </div>
+          <p>Iniciatives de <strong>solidaritat i consciència social</strong> que impliquen tota la comunitat educativa. El centre defensa que "no pot girar l'esquena al patiment de ningú" i organitza accions per manifestar compromís amb causes humanitàries.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Concentracions i actes simbòlics durant l'hora del pati</li>
+              <li>Recollida de recursos per a col·lectius vulnerables</li>
+              <li>Col·laboració amb entitats socials del municipi</li>
+              <li>Educació en valors i responsabilitat social</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- fi graella benestar -->
+    </section>
+
+    <!-- =========================================
+         2. PROGRAMES EDUCATIUS
+         ========================================= -->
+    <section class="seccio-projectes" id="educatius" style="padding-top:2rem">
+      <div class="grup-titol">
+        <span style="font-size:1.8rem">📡</span>
+        <h2>Programes educatius</h2>
+        <span class="num-badge">2 projectes</span>
+      </div>
+      <div class="graella-cards graella-2">
+
+        <!-- EOIES -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-educatiu" style="background:linear-gradient(135deg,#2980b9,#1a3a5c)">🌐</div>
+            <div>
+              <span class="projecte-tag cat-educatiu">Idiomes</span>
+              <h3>EOIES — Col·laboració amb l'Escola Oficial d'Idiomes</h3>
+            </div>
+          </div>
+          <p>Col·laboració entre l'IES Calvià i l'<strong>Escola Oficial d'Idiomes</strong> (EOI) per a la integració de l'aprenentatge d'idiomes en el curs escolar. Permet a l'alumnat ampliar la seva formació lingüística de manera reglada.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Coordinació curricular entre el centre i l'EOI</li>
+              <li>Accés a titulacions oficials d'idiomes</li>
+              <li>Reforç de competències lingüístiques en idiomes estrangers</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IEDIB -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-educatiu" style="background:linear-gradient(135deg,#2980b9,#1a3a5c)">🔬</div>
+            <div>
+              <span class="projecte-tag cat-educatiu">Innovació</span>
+              <h3>IEDIB — Innovació Educativa de les Illes Balears</h3>
+            </div>
+          </div>
+          <p>Participació en el programa d'<strong>innovació educativa del Govern de les Illes Balears</strong>. Impulsa la formació del professorat i l'aplicació de noves metodologies pedagògiques per millorar la qualitat educativa del centre.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Formació i actualització pedagògica del professorat</li>
+              <li>Aplicació de metodologies innovadores a l'aula</li>
+              <li>Intercanvi de bones pràctiques amb altres centres de Balears</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================
+         3. LLENGUA I CULTURA
+         ========================================= -->
+    <section class="seccio-projectes" id="llengua" style="padding-top:2rem">
+      <div class="grup-titol">
+        <span style="font-size:1.8rem">🗣️</span>
+        <h2>Llengua i cultura</h2>
+        <span class="num-badge">2 projectes</span>
+      </div>
+      <div class="graella-cards graella-2">
+
+        <!-- PALIC -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-llengua" style="background:linear-gradient(135deg,#8e44ad,#6c3483)">🫂</div>
+            <div>
+              <span class="projecte-tag cat-llengua">Acollida</span>
+              <h3>PALIC — Programa d'Acolliment Lingüístic i Cultural</h3>
+            </div>
+          </div>
+          <p>Programa de <strong>acollida lingüística i cultural</strong> per a l'alumnat nouvingut que s'incorpora al sistema educatiu de les Illes Balears. Facilita la integració progressiva a través de la llengua i la cultura pròpies del territori.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Durada: fins a <strong>2 cursos escolars</strong> (o menys si s'assoleix competència lingüística)</li>
+              <li>Integració progressiva al grup classe ordinari</li>
+              <li>Suport lingüístic en la llengua vehicular del centre (català)</li>
+              <li>Acompanyament cultural per facilitar la inclusió</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- COMISSIÓ LINGÜÍSTICA -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-llengua" style="background:linear-gradient(135deg,#8e44ad,#6c3483)">🔤</div>
+            <div>
+              <span class="projecte-tag cat-llengua">Català</span>
+              <h3>Comissió Lingüística</h3>
+            </div>
+          </div>
+          <p>Promou l'ús i la presència del <strong>català</strong> al centre, amb l'objectiu que l'alumnat el faci seu. Organitza activitats transversals que mostren la vitalitat del català a tots els sectors de Mallorca, fent front a la substitució lingüística al municipi de Calvià.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li><strong>Dia de la Poesia (21 març)</strong>: versos de Gloria Fuertes i Joan Alcover pels passadissos; alumnes fan polseres amb poemes</li>
+              <li><strong>Olimpíada de Català</strong>: participants a la fase final a la UIB</li>
+              <li><strong>Dia de la Llengua Materna (20 feb.)</strong>: paraules preferides en diverses llengües exposades als passadissos</li>
+              <li><strong>Dia de la Memòria de l'Holocaust (27 gen.)</strong>: projeccions i debats; ampliació de fons bibliogràfic</li>
+              <li>Exposicions literàries (ex: obra d'Amat-Piniella)</li>
+              <li>Xerrades sobre la importància de l'aprenentatge lingüístic</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================
+         4. SERVEIS DEL CENTRE
+         ========================================= -->
+    <section class="seccio-projectes" id="serveis" style="padding-top:2rem">
+      <div class="grup-titol">
+        <span style="font-size:1.8rem">🔧</span>
+        <h2>Serveis del centre</h2>
+        <span class="num-badge">4 projectes</span>
+      </div>
+      <div class="graella-cards graella-2">
+
+        <!-- TIC -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-serveis" style="background:linear-gradient(135deg,#e8a838,#c47f00)">💻</div>
+            <div>
+              <span class="projecte-tag cat-serveis">Tecnologia</span>
+              <h3>TIC — Comissió de Tecnologies de la Informació</h3>
+            </div>
+          </div>
+          <p>Equip docent responsable de <strong>gestionar i coordinar tots els recursos informàtics</strong> del centre: infraestructura tecnològica, maquinari, programari i eines digitals utilitzades en tots els nivells educatius.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Gestió i manteniment de l'equipament informàtic del centre</li>
+              <li>Coordinació de les plataformes digitals educatives</li>
+              <li>Suport tècnic a professorat i alumnat</li>
+              <li>Foment de les competències digitals a l'aula</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- QUALITAT -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-serveis" style="background:linear-gradient(135deg,#e8a838,#c47f00)">✅</div>
+            <div>
+              <span class="projecte-tag cat-serveis">Qualitat</span>
+              <h3>Qualitat</h3>
+            </div>
+          </div>
+          <p>Sistema de <strong>gestió de la qualitat educativa</strong> del centre. Avalua el funcionament intern, promou la millora contínua i vetlla per la satisfacció de tots els membres de la comunitat educativa: alumnat, famílies i professorat.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Avaluació periòdica del funcionament del centre</li>
+              <li>Enquestes de satisfacció a la comunitat educativa</li>
+              <li>Identificació de millores i implementació de canvis</li>
+              <li>Seguiment dels objectius de la Programació General Anual</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BIBLIOTECA -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-serveis" style="background:linear-gradient(135deg,#e8a838,#c47f00)">📚</div>
+            <div>
+              <span class="projecte-tag cat-serveis">Lectura</span>
+              <h3>Biblioteca Escolar</h3>
+            </div>
+          </div>
+          <p>Espai de recursos i foment de la lectura per a tota la comunitat educativa. <strong>"Dinamitzam la lectura per plaer i guiada"</strong> i posem a l'abast una bibliografia actualitzada i adequada a les necessitats de l'alumnat i el professorat.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Préstec de llibres, àudiolibres i materials multimèdia</li>
+              <li>Accés a la plataforma digital <strong>Eduteca</strong></li>
+              <li>Club de lectura i activitats literàries</li>
+              <li>Orientació en treballs de recerca</li>
+              <li>Ampliació de fons bibliogràfic coordinada amb projectes lingüístics</li>
+              <li>Horari: <strong>Dl–Dv 8:00 – 14:30</strong> (inclosa hora del pati)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ACTIVITATS COMPLEMENTÀRIES -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-serveis" style="background:linear-gradient(135deg,#e8a838,#c47f00)">🏔️</div>
+            <div>
+              <span class="projecte-tag cat-serveis">Extraescolars</span>
+              <h3>Activitats Complementàries i Extraescolars</h3>
+            </div>
+          </div>
+          <p>Comissió que organitza les activitats fora de l'aula que <strong>completen la formació integral de l'alumnat</strong>. Coordina dues tipologies regulades pel Decret 120/2002 de les Illes Balears.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li><strong>Activitats complementàries</strong> (obligatòries): durant horari lectiu, de caràcter didàctic, integrades a les programacions de departament</li>
+              <li><strong>Activitats extraescolars i sortides</strong> (voluntàries): formació addicional fora del currículum obligatori</li>
+              <li>Visites culturals, excursions a la natura, visites a empreses</li>
+              <li>Tornejos esportius i participació en jocs escolars de Balears</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================
+         5. CULTURA I EXPRESSIÓ
+         ========================================= -->
+    <section class="seccio-projectes" id="extraescolars" style="padding-top:2rem;padding-bottom:3rem">
+      <div class="grup-titol">
+        <span style="font-size:1.8rem">🎭</span>
+        <h2>Cultura i expressió</h2>
+        <span class="num-badge">2 projectes</span>
+      </div>
+      <div class="graella-cards graella-2">
+
+        <!-- REVISTA SON PILLO EXPRÉS -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-cultura" style="background:linear-gradient(135deg,#e74c3c,#c0392b)">📰</div>
+            <div>
+              <span class="projecte-tag cat-cultura">Comunicació</span>
+              <h3>Revista "Son Pillo Exprés"</h3>
+            </div>
+          </div>
+          <p>La revista escolar del centre, <strong>elaborada i editada pels propis alumnes</strong> amb el suport del departament de llengua. Un espai d'expressió, comunicació i periodisme escolar que dona veu a tota la comunitat educativa de l'IES Calvià.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Projecte impulsat des del departament de Llengua Catalana</li>
+              <li>Redacció, maquetació i edició a càrrec de l'alumnat</li>
+              <li>Publicació periòdica amb notícies i activitats del centre</li>
+              <li>Eines de comunicació i expressió escrita</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ARTS ESCÈNIQUES I MÚSICA -->
+        <div class="projecte-card">
+          <div class="projecte-cap">
+            <div class="projecte-icona cat-cultura" style="background:linear-gradient(135deg,#e74c3c,#c0392b)">🎭</div>
+            <div>
+              <span class="projecte-tag cat-cultura">Escena · Música</span>
+              <h3>Actuacions dels Alumnes: Arts Escèniques i Música</h3>
+            </div>
+          </div>
+          <p>Espai per a les <strong>actuacions teatrals, musicals i de dansa</strong> dels alumnes del centre. Representacions obertes a tota la comunitat educativa que potencien l'expressió artística, la creativitat i el treball en equip.</p>
+          <div class="projecte-detalls">
+            <ul>
+              <li>Representacions teatrals i de dansa al llarg del curs</li>
+              <li>Actuacions musicals en dates especials (Nadal, fi de curs…)</li>
+              <li>Coordinació amb el departament de Música i Plàstica</li>
+              <li>Participació oberta a tot l'alumnat del centre</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- fi contenidor -->
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+            <li><a href="erasmus.html">Erasmus+</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
+            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
+            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
+            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendari escolar de l'IES Calvià: dates importants, festius, exàmens i activitats del curs 2025-26.">
+  <title>Calendari Escolar — IES Calvià</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* === LLEGENDA === */
+    .llegenda {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      font-size: 0.87rem;
+      align-items: center;
+    }
+    .llegenda-item { display: flex; align-items: center; gap: 0.4rem; }
+    .llegenda-color {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* === LÍNIA DE TEMPS (timeline) === */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--color-vora);
+      border-radius: 2px;
+    }
+
+    .timeline-grup { margin-bottom: 0.25rem; }
+
+    /* Capçalera de mes */
+    .timeline-mes {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.75rem 0 0.75rem;
+      position: relative;
+    }
+    .timeline-mes::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--color-primari);
+      border: 3px solid var(--color-blanc);
+      box-shadow: 0 0 0 2px var(--color-primari);
+      top: 50%; transform: translateY(-50%);
+    }
+    .timeline-mes h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-primari);
+      margin: 0;
+    }
+    .timeline-mes .mes-any {
+      font-size: 0.78rem;
+      color: var(--color-text-suau);
+      font-weight: 500;
+    }
+
+    /* Fila d'event */
+    .timeline-event {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.6rem 0.75rem;
+      border-radius: var(--radius);
+      margin-bottom: 0.35rem;
+      transition: background var(--transicio);
+      position: relative;
+    }
+    .timeline-event:hover { background: rgba(0,0,0,0.03); }
+
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      left: -1.7rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      top: 0.85rem;
+      flex-shrink: 0;
+    }
+    .timeline-event.tipus-festiu::before   { background: #e74c3c; }
+    .timeline-event.tipus-inici::before    { background: #27ae60; }
+    .timeline-event.tipus-aval::before     { background: var(--color-accent); }
+    .timeline-event.tipus-activitat::before { background: var(--color-secundari); }
+    .timeline-event.tipus-vacances::before  { background: #9b59b6; }
+
+    .event-data-col {
+      min-width: 105px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-text-suau);
+      padding-top: 0.05rem;
+      flex-shrink: 0;
+    }
+    .event-text {
+      font-size: 0.92rem;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .event-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .badge-festiu   { background: rgba(231,76,60,0.12);  color: #c0392b; }
+    .badge-inici    { background: rgba(39,174,96,0.12);  color: #1e8449; }
+    .badge-aval     { background: rgba(232,168,56,0.15); color: #a06800; }
+    .badge-activitat { background: rgba(41,128,185,0.12); color: #1a5276; }
+    .badge-vacances { background: rgba(155,89,182,0.12); color: #6c3483; }
+
+    /* === IFRAME SHAREPOINT === */
+    .sharepoint-bloc {
+      background: var(--color-blanc);
+      border-radius: var(--radius-gran);
+      box-shadow: var(--ombra-card);
+      border: 1px solid var(--color-vora);
+      overflow: hidden;
+    }
+    .sharepoint-cap {
+      background: var(--color-primari);
+      color: white;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .sharepoint-cap h3 { color: white; margin: 0; font-size: 1rem; }
+    .sharepoint-cap p  { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin: 0; }
+    .sharepoint-iframe-wrap {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      background: var(--color-fons);
+    }
+    .sharepoint-iframe-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      display: block;
+    }
+    .sharepoint-iframe-wrap iframe { display: block; }
+
+    @media (max-width: 768px) {
+      .timeline { padding-left: 1.25rem; }
+      .timeline-mes::before { left: -1.25rem; }
+      .timeline-event::before { left: -1rem; }
+      .event-data-col { min-width: 85px; font-size: 0.75rem; }
+      .sharepoint-iframe-wrap { height: 420px; }
+      .timeline-event { flex-wrap: wrap; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANER SUPERIOR -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓ -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link">Estudis <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">Alumnes i famílies <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link">Centre <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="centre.html#qui-som">Qui som</a></li>
+            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
+            <li><a href="centre.html#departaments">Departaments</a></li>
+            <li><a href="centre.html#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="centre.html#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link">Projectes <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
+            <li><a href="projectes.html#educatius">Programes educatius</a></li>
+            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
+            <li><a href="projectes.html#serveis">Serveis del centre</a></li>
+            <li><a href="projectes.html#extraescolars">Activitats i cultura</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial actiu">📅 Calendari</a></li>
+        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CAPÇALERA -->
+  <header class="pagina-hero">
+    <div class="contenidor">
+      <p class="engruna"><a href="index.html">Inici</a> › Calendari</p>
+      <h1>Calendari escolar 2025–26</h1>
+      <p>Dates importants, festius, avaluacions i activitats del curs</p>
+    </div>
+  </header>
+
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+
+      <!-- =========================================
+           CALENDARI DEL CENTRE (SharePoint)
+           ========================================= -->
+      <div class="seccio-cap" style="text-align:left;margin-bottom:1.5rem">
+        <span class="etiqueta-seccio">Calendari del centre</span>
+        <h2>Activitats i esdeveniments</h2>
+        <p style="color:var(--color-text-suau);font-size:0.95rem;max-width:none;text-align:left;margin-top:0.5rem">
+          Calendari intern del centre actualitzat per l'equip docent en temps real.
+        </p>
+      </div>
+
+      <div class="sharepoint-bloc" style="margin-bottom:3rem">
+        <div class="sharepoint-cap">
+          <div>
+            <h3>📅 Calendari IES Calvià</h3>
+            <p>Font: SharePoint · ibeducacio.eu — s'actualitza en temps real</p>
+          </div>
+          <a href="https://ibeducacio-my.sharepoint.com/:l:/g/personal/iescalvia_ibeducacio_eu/FDF0TQ8ry7tFpsAQ5LjO3TABbWbpnRtT_ybN1CbC0rH2YQ?e=0GYL8T"
+             target="_blank" rel="noopener"
+             class="btn btn-contorn"
+             style="font-size:0.82rem;padding:0.4rem 0.9rem;white-space:nowrap">
+            Obrir en nova finestra ↗
+          </a>
+        </div>
+        <div class="sharepoint-iframe-wrap">
+          <iframe
+            src="https://ibeducacio-my.sharepoint.com/:l:/g/personal/iescalvia_ibeducacio_eu/FDF0TQ8ry7tFpsAQ5LjO3TABbWbpnRtT_ybN1CbC0rH2YQ?e=0GYL8T"
+            title="Calendari IES Calvià (SharePoint)"
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- =========================================
+           DATES CLAU DEL CURS (llista unificada)
+           ========================================= -->
+      <div class="seccio-cap" style="text-align:left;margin-bottom:1.5rem">
+        <span class="etiqueta-seccio">Curs 2025–2026</span>
+        <h2>Dates clau del curs</h2>
+      </div>
+
+      <div class="llegenda">
+        <span style="font-size:0.82rem;font-weight:700;color:var(--color-text-suau);margin-right:0.25rem">Llegenda:</span>
+        <div class="llegenda-item"><span class="llegenda-color" style="background:#27ae60"></span><span>Inici / Fi de curs</span></div>
+        <div class="llegenda-item"><span class="llegenda-color" style="background:#e74c3c"></span><span>Festiu / No lectiu</span></div>
+        <div class="llegenda-item"><span class="llegenda-color" style="background:#9b59b6"></span><span>Vacances</span></div>
+        <div class="llegenda-item"><span class="llegenda-color" style="background:var(--color-accent)"></span><span>Avaluació</span></div>
+        <div class="llegenda-item"><span class="llegenda-color" style="background:var(--color-secundari)"></span><span>Activitat</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-cos">
+          <div class="timeline">
+
+            <!-- SETEMBRE 2025 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Setembre</h3><span class="mes-any">2025</span>
+              </div>
+              <div class="timeline-event tipus-inici">
+                <span class="event-data-col">10 set.</span>
+                <span class="event-text">Inici del curs escolar 2025-26 <span class="event-badge badge-inici">Inici</span></span>
+              </div>
+            </div>
+
+            <!-- OCTUBRE 2025 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Octubre</h3><span class="mes-any">2025</span>
+              </div>
+              <div class="timeline-event tipus-festiu">
+                <span class="event-data-col">12 oct.</span>
+                <span class="event-text">Festa Nacional d'Espanya <span class="event-badge badge-festiu">Festiu</span></span>
+              </div>
+            </div>
+
+            <!-- NOVEMBRE 2025 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Novembre</h3><span class="mes-any">2025</span>
+              </div>
+              <div class="timeline-event tipus-festiu">
+                <span class="event-data-col">1 nov.</span>
+                <span class="event-text">Tots Sants <span class="event-badge badge-festiu">Festiu</span></span>
+              </div>
+              <div class="timeline-event tipus-aval">
+                <span class="event-data-col">17–21 nov.</span>
+                <span class="event-text">Avaluació inicial — lliurament d'informes <span class="event-badge badge-aval">Avaluació</span></span>
+              </div>
+            </div>
+
+            <!-- DESEMBRE 2025 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Desembre</h3><span class="mes-any">2025</span>
+              </div>
+              <div class="timeline-event tipus-festiu">
+                <span class="event-data-col">6 des.</span>
+                <span class="event-text">Dia de la Constitució <span class="event-badge badge-festiu">Festiu</span></span>
+              </div>
+              <div class="timeline-event tipus-festiu">
+                <span class="event-data-col">8 des.</span>
+                <span class="event-text">Immaculada Concepció <span class="event-badge badge-festiu">Festiu</span></span>
+              </div>
+              <div class="timeline-event tipus-vacances">
+                <span class="event-data-col">22 des.</span>
+                <span class="event-text">Inici vacances de Nadal <span class="event-badge badge-vacances">Vacances</span></span>
+              </div>
+            </div>
+
+            <!-- GENER 2026 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Gener</h3><span class="mes-any">2026</span>
+              </div>
+              <div class="timeline-event tipus-inici">
+                <span class="event-data-col">8 gen.</span>
+                <span class="event-text">Represa del curs — inici del 2n trimestre <span class="event-badge badge-inici">2n trimestre</span></span>
+              </div>
+            </div>
+
+            <!-- FEBRER 2026 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Febrer</h3><span class="mes-any">2026</span>
+              </div>
+              <div class="timeline-event tipus-aval">
+                <span class="event-data-col">Feb. (aprox.)</span>
+                <span class="event-text">Avaluació 1r trimestre — lliurament d'informes <span class="event-badge badge-aval">Avaluació</span></span>
+              </div>
+            </div>
+
+            <!-- MARÇ 2026 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Març</h3><span class="mes-any">2026</span>
+              </div>
+              <div class="timeline-event tipus-festiu">
+                <span class="event-data-col">1 mar.</span>
+                <span class="event-text">Dia de les Illes Balears <span class="event-badge badge-festiu">Festiu</span></span>
+              </div>
+              <div class="timeline-event tipus-vacances">
+                <span class="event-data-col">2–6 mar.</span>
+                <span class="event-text">Vacances de Carnestoltes <span class="event-badge badge-vacances">Vacances</span></span>
+              </div>
+              <div class="timeline-event tipus-inici">
+                <span class="event-data-col">9 mar.</span>
+                <span class="event-text">Represa del curs — inici del 3r trimestre <span class="event-badge badge-inici">3r trimestre</span></span>
+              </div>
+            </div>
+
+            <!-- ABRIL 2026 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Abril</h3><span class="mes-any">2026</span>
+              </div>
+              <div class="timeline-event tipus-vacances">
+                <span class="event-data-col">30 mar.–9 abr.</span>
+                <span class="event-text">Vacances de Setmana Santa <span class="event-badge badge-vacances">Vacances</span></span>
+              </div>
+              <div class="timeline-event tipus-aval">
+                <span class="event-data-col">Abr. (aprox.)</span>
+                <span class="event-text">Avaluació 2n trimestre — lliurament d'informes <span class="event-badge badge-aval">Avaluació</span></span>
+              </div>
+            </div>
+
+            <!-- MAIG 2026 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Maig</h3><span class="mes-any">2026</span>
+              </div>
+              <div class="timeline-event tipus-festiu">
+                <span class="event-data-col">1 maig</span>
+                <span class="event-text">Dia del Treballador <span class="event-badge badge-festiu">Festiu</span></span>
+              </div>
+            </div>
+
+            <!-- JUNY 2026 -->
+            <div class="timeline-grup">
+              <div class="timeline-mes">
+                <h3>Juny</h3><span class="mes-any">2026</span>
+              </div>
+              <div class="timeline-event tipus-aval">
+                <span class="event-data-col">Jun. (aprox.)</span>
+                <span class="event-text">Avaluació final 3r trimestre <span class="event-badge badge-aval">Avaluació</span></span>
+              </div>
+              <div class="timeline-event tipus-activitat">
+                <span class="event-data-col">Jun.</span>
+                <span class="event-text">PAU — Proves d'Accés a la Universitat (Batxillerat) <span class="event-badge badge-activitat">Batxillerat</span></span>
+              </div>
+              <div class="timeline-event tipus-inici">
+                <span class="event-data-col">~19 jun.</span>
+                <span class="event-text">Fi del curs escolar 2025-26 <span class="event-badge badge-inici">Fi de curs</span></span>
+              </div>
+            </div>
+
+          </div><!-- fi timeline -->
+        </div>
+      </div>
+
+      <!-- Calendari oficial CAIB -->
+      <div class="info-box accent" style="margin-top:2rem">
+        📄 <strong>Resolució del calendari escolar oficial de la CAIB:</strong> Pots descarregar el document oficial
+        del curs 2025-26 publicat per la Conselleria d'Educació i Formació Professional del Govern de les Illes Balears.
+        <br><br>
+        <a href="#" class="btn btn-primari">
+          Descarregar Resolució Calendari 2025-26 (PDF)
+        </a>
+        <p style="margin-top:0.75rem;font-size:0.82rem;color:var(--color-text-suau)">
+          ✏️ Nota de manteniment: substitueix <code>href="#"</code> per la URL real del PDF de la CAIB.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
+            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
+            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
+            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IES Calvià — Institut d'Educació Secundària. ESO, Batxillerat i Formació Professional a Calvià, Mallorca.">
+  <title>IES Calvià — Institut d'Educació Secundària</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =============================================
+       BANER SUPERIOR
+       ============================================= -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       NAVEGACIÓ
+       NOTA: Si afegeixes una pàgina nova, afegeix
+       l'enllaç aquí I a totes les altres pàgines.
+       ============================================= -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+
+      <!-- Botó hamburguesa (mòbil) -->
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Menú -->
+      <ul class="nav-menu" role="list">
+
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Inici</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link">
+            Estudis <span class="flexa">▾</span>
+          </a>
+          <ul class="submenu" role="list">
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">
+            Alumnes i famílies <span class="flexa">▾</span>
+          </a>
+          <ul class="submenu" role="list">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link">
+            Centre <span class="flexa">▾</span>
+          </a>
+          <ul class="submenu" role="list">
+            <li><a href="centre.html#qui-som">Qui som</a></li>
+            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
+            <li><a href="centre.html#departaments">Departaments</a></li>
+            <li><a href="centre.html#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="centre.html#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="secretaria.html" class="nav-link">Secretaria</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link">
+            Projectes <span class="flexa">▾</span>
+          </a>
+          <ul class="submenu" role="list">
+            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
+            <li><a href="projectes.html#educatius">Programes educatius</a></li>
+            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
+            <li><a href="projectes.html#biblioteca">Biblioteca</a></li>
+            <li><a href="projectes.html#extraescolars">Activitats extraescolars</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- =============================================
+       HERO
+       ============================================= -->
+  <section class="hero">
+    <div class="contenidor">
+      <div class="hero-contingut">
+        <div class="hero-text">
+          <h1>Benvinguts a l'IES Calvià</h1>
+          <p class="hero-subtitol">
+            Un centre d'educació secundària compromès amb l'aprenentatge,
+            la convivència i la preparació del nostre alumnat per al futur.
+            ESO, Batxillerat i Formació Professional a Calvià, Mallorca.
+          </p>
+          <div class="hero-botons">
+            <a href="estudis.html" class="btn btn-primari">Coneix els nostres estudis</a>
+            <a href="centre.html#contacte" class="btn btn-contorn">Contacte</a>
+          </div>
+        </div>
+        <div class="hero-cards">
+          <a href="estudis.html#eso" class="hero-card">
+            <div class="hero-card-icona">📚</div>
+            <div class="hero-card-text">ESO</div>
+          </a>
+          <a href="estudis.html#batxillerat" class="hero-card">
+            <div class="hero-card-icona">🎓</div>
+            <div class="hero-card-text">Batxillerat</div>
+          </a>
+          <a href="estudis.html#fp-mitja" class="hero-card">
+            <div class="hero-card-icona">👨‍🍳</div>
+            <div class="hero-card-text">FP Mitjà</div>
+          </a>
+          <a href="estudis.html#fp-superior" class="hero-card">
+            <div class="hero-card-icona">🏨</div>
+            <div class="hero-card-text">FP Superior</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       ACCÉS RÀPID
+       ============================================= -->
+  <section class="acces-rapid">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">Accés ràpid</span>
+        <h2>Tot el que necessites, en un clic</h2>
+      </div>
+      <div class="acces-rapid-graella">
+        <a href="alumnes-families.html#justificacio" class="acces-item">
+          <span class="icona">📋</span>
+          <strong>Justificar faltes</strong>
+          <span>Formulari en línia</span>
+        </a>
+        <a href="alumnes-families.html#horaris" class="acces-item">
+          <span class="icona">🕐</span>
+          <strong>Horaris professors</strong>
+          <span>Atenció a les famílies</span>
+        </a>
+        <a href="alumnes-families.html#transport" class="acces-item">
+          <span class="icona">🚌</span>
+          <strong>Transport escolar</strong>
+          <span>Línies i horaris</span>
+        </a>
+        <a href="secretaria.html" class="acces-item">
+          <span class="icona">📄</span>
+          <strong>Secretaria</strong>
+          <span>Tràmits administratius</span>
+        </a>
+        <a href="calendari.html" class="acces-item">
+          <span class="icona">📅</span>
+          <strong>Calendari escolar</strong>
+          <span>Festius i activitats</span>
+        </a>
+        <a href="projectes.html" class="acces-item">
+          <span class="icona">🌱</span>
+          <strong>Projectes</strong>
+          <span>Iniciatives del centre</span>
+        </a>
+        <a href="erasmus.html" class="acces-item">
+          <span class="icona">🇪🇺</span>
+          <strong>Erasmus+</strong>
+          <span>Intercanvis europeus</span>
+        </a>
+        <a href="alumnes-families.html#amipa" class="acces-item">
+          <span class="icona">👨‍👩‍👧‍👦</span>
+          <strong>AMIPA</strong>
+          <span>Associació de famílies</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       NOTÍCIES
+       ============================================= -->
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">Actualitat</span>
+        <h2>Darreres notícies</h2>
+        <p>Segueix tota l'activitat del centre: esdeveniments, resultats i novetats.</p>
+      </div>
+      <!-- Les notícies es carreguen automàticament des de data/noticias.js -->
+      <div id="noticies-inici" class="graella-cards graella-3">
+        <p>Carregant notícies…</p>
+      </div>
+      <div class="text-center mt-lg">
+        <a href="noticies.html" class="btn btn-secundari">Veure totes les notícies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       XIFRES DESTACADES
+       ============================================= -->
+  <section class="xifres">
+    <div class="contenidor">
+      <!-- Les xifres es carreguen des de data/contingut.js -->
+      <div id="xifres-contenidor" class="xifres-graella">
+        <!-- contingut dinàmic -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       ESTUDIS — RESUM
+       ============================================= -->
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">Els nostres estudis</span>
+        <h2>Una oferta formativa completa</h2>
+        <p>Des de l'ESO fins a cicles superiors, t'acompanyem en cada etapa del teu camí educatiu.</p>
+      </div>
+      <div class="graella-cards graella-3">
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📚</div>
+            <h3>ESO</h3>
+            <p>Educació Secundària Obligatòria per a alumnes de 12 a 16 anys. Una base sòlida per al futur acadèmic i personal.</p>
+            <a href="estudis.html#eso" class="btn btn-secundari" style="margin-top:1rem">Saber-ne més</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">🎓</div>
+            <h3>Batxillerat</h3>
+            <p>Quatre modalitats: General, Científic, Artístic i Social-Humanístic. Prepara't per a la universitat o el món laboral.</p>
+            <a href="estudis.html#batxillerat" class="btn btn-secundari" style="margin-top:1rem">Saber-ne més</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">👨‍🍳</div>
+            <h3>Formació Professional</h3>
+            <p>Cicles de cuina, restauració, màrqueting, turisme i administració. Del grau bàsic al superior, amb pràctiques reals.</p>
+            <a href="estudis.html#fp-mitja" class="btn btn-secundari" style="margin-top:1rem">Saber-ne més</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       PEU DE PÀGINA
+       ============================================= -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+
+        <!-- Col·lumna 1: Identitat -->
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca des de fa més de 35 anys.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+
+        <!-- Col·lumna 2: Estudis -->
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+
+        <!-- Col·lumna 3: Informació -->
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+            <li><a href="erasmus.html">Erasmus+</a></li>
+          </ul>
+        </div>
+
+        <!-- Col·lumna 4: Contacte -->
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li>
+              <span class="ico">📍</span>
+              <span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span>
+            </li>
+            <li>
+              <span class="ico">📞</span>
+              <a href="tel:971139200">971 139 200</a>
+            </li>
+            <li>
+              <span class="ico">✉️</span>
+              <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a>
+            </li>
+            <li>
+              <span class="ico">🕐</span>
+              <span>Secretaria: Dl–Dv 8:30–14:00<br>Dt i Dj tarda 16:00–18:00</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Peu inferior -->
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo">
+          <span>🇪🇺</span>
+          <span>Projectes cofinançats per la Unió Europea</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

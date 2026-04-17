@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Informació sobre l'IES Calvià: qui som, equip directiu, departaments, documents institucionals i contacte.">
+  <title>El Centre — IES Calvià</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .equip-card {
+      background: var(--color-blanc);
+      border-radius: var(--radius-gran);
+      box-shadow: var(--ombra-card);
+      border: 1px solid var(--color-vora);
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 4px solid var(--color-secundari);
+    }
+    .equip-avatar {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--color-secundari), var(--color-primari));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 1rem;
+    }
+    .equip-carrec {
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--color-secundari); margin-bottom: 0.25rem;
+    }
+    .equip-nom { font-size: 1.05rem; font-weight: 700; color: var(--color-primari); }
+
+    /* === FILTRE === */
+    .dept-filtres {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .dept-filtre-btn {
+      padding: 0.45rem 1.1rem;
+      border: 1.5px solid var(--color-vora);
+      border-radius: 20px;
+      background: var(--color-blanc);
+      font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; color: var(--color-text-suau);
+      transition: all var(--transicio);
+    }
+    .dept-filtre-btn:hover { border-color: var(--color-secundari); color: var(--color-secundari); }
+    .dept-filtre-btn.actiu {
+      background: var(--color-primari); border-color: var(--color-primari);
+      color: white;
+    }
+
+    /* === GRUP === */
+    .dept-grup { transition: opacity 0.2s; }
+    .dept-grup.ocult { display: none; }
+
+    .dept-grup-titol {
+      font-size: 1rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--color-primari);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--color-vora);
+    }
+
+    /* === GRAELLA CARDS === */
+    .dept-cards-graella {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    /* === CARD === */
+    .dept-card {
+      background: var(--color-blanc);
+      border: 1px solid var(--color-vora);
+      border-radius: var(--radius-gran);
+      padding: 1.1rem 1.25rem;
+      box-shadow: var(--ombra-card);
+      display: flex; flex-direction: column; gap: 0.65rem;
+      border-left: 4px solid var(--color-secundari);
+      transition: all var(--transicio);
+    }
+    .dept-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+    .dept-card-fp { border-left-color: var(--color-accent); }
+
+    .dept-card-cap {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .dept-icona {
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .dept-card-cap h4 {
+      font-size: 0.95rem; margin: 0 0 0.2rem;
+      color: var(--color-primari);
+    }
+    .dept-tag {
+      font-size: 0.72rem; font-weight: 700;
+      background: rgba(41,128,185,0.1); color: var(--color-secundari);
+      padding: 0.15rem 0.5rem; border-radius: 20px;
+    }
+    .dept-tag-fp {
+      background: rgba(232,168,56,0.15); color: #a06800;
+    }
+
+    .dept-cap-info {
+      display: flex; flex-direction: column; gap: 0.15rem;
+      background: var(--color-fons);
+      border-radius: var(--radius);
+      padding: 0.6rem 0.75rem;
+      font-size: 0.85rem;
+    }
+    .dept-label {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--color-text-suau);
+    }
+    .dept-nom { font-weight: 700; color: var(--color-text); }
+    .dept-email {
+      color: var(--color-secundari); font-size: 0.8rem;
+      word-break: break-all;
+    }
+    .dept-email:hover { color: var(--color-primari); }
+
+    .dept-desc {
+      font-size: 0.83rem; color: var(--color-text-suau);
+      line-height: 1.55; margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .dept-cards-graella { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .dept-cards-graella { grid-template-columns: 1fr; }
+    }
+
+    .mapa-contenidor {
+      background: var(--color-fons);
+      border: 1px solid var(--color-vora);
+      border-radius: var(--radius-gran);
+      height: 350px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: var(--color-text-suau);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .dept-graella { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .dept-graella { grid-template-columns: 1fr; }
+    }
+
+    /* === CERCADOR === */
+    .dept-cerca-contenidor {
+      margin-bottom: 1.75rem;
+    }
+    .dept-cerca {
+      width: 100%;
+      padding: 0.65rem 1rem 0.65rem 2.6rem;
+      border: 1.5px solid var(--color-vora);
+      border-radius: 24px;
+      font-size: 0.93rem;
+      font-family: inherit;
+      color: var(--color-text);
+      background: var(--color-blanc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat 0.85rem center;
+      transition: border-color var(--transicio), box-shadow var(--transicio);
+      box-sizing: border-box;
+    }
+    .dept-cerca:focus {
+      outline: none;
+      border-color: var(--color-secundari);
+      box-shadow: 0 0 0 3px rgba(41,128,185,0.12);
+    }
+    .dept-cerca-resum {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--color-text-suau);
+    }
+
+    /* === BOTO EXPANDIR === */
+    .dept-btn-expandir {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: 1px solid var(--color-vora);
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-suau);
+      cursor: pointer;
+      transition: all var(--transicio);
+      margin-top: 0.25rem;
+    }
+    .dept-btn-expandir:hover {
+      border-color: var(--color-secundari);
+      color: var(--color-secundari);
+    }
+    .dept-btn-expandir .fletxa {
+      display: inline-block;
+      transition: transform 0.2s;
+      font-size: 0.7rem;
+    }
+    .dept-btn-expandir.obert .fletxa { transform: rotate(180deg); }
+
+    /* === TAULA PROFESSORS === */
+    .dept-professors-panel {
+      display: none;
+      border-top: 1px solid var(--color-vora);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+    }
+    .dept-professors-panel.obert { display: block; }
+
+    .dept-prof-taula {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .dept-prof-taula th {
+      text-align: left;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--color-text-suau);
+      padding: 0.3rem 0.5rem 0.4rem;
+      border-bottom: 1px solid var(--color-vora);
+    }
+    .dept-prof-taula td {
+      padding: 0.4rem 0.5rem;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .dept-prof-taula tr:last-child td { border-bottom: none; }
+    .dept-prof-taula tr:hover td { background: var(--color-fons); }
+    .dept-prof-nom {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .dept-prof-nom.cap-dept::after {
+      content: ' ★';
+      color: var(--color-secundari);
+      font-size: 0.75rem;
+    }
+    .dept-prof-email {
+      color: var(--color-secundari);
+      word-break: break-all;
+    }
+    .dept-prof-email:hover { color: var(--color-primari); }
+    .dept-horari-buit {
+      color: var(--color-text-suau);
+      font-style: italic;
+      font-size: 0.78rem;
+    }
+
+    /* === RESULTAT CERCA BUIT === */
+    .dept-cap-resultat {
+      text-align: center;
+      padding: 2rem;
+      color: var(--color-text-suau);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANER SUPERIOR -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓ -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link">Estudis <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">Alumnes i famílies <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link actiu">Centre <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="#qui-som">Qui som</a></li>
+            <li><a href="#equip-directiu">Equip directiu</a></li>
+            <li><a href="#departaments">Departaments</a></li>
+            <li><a href="#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link">Projectes <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
+            <li><a href="projectes.html#educatius">Programes educatius</a></li>
+            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
+            <li><a href="projectes.html#biblioteca">Biblioteca</a></li>
+            <li><a href="projectes.html#extraescolars">Activitats extraescolars</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a></li>
+        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CAPÇALERA -->
+  <header class="pagina-hero">
+    <div class="contenidor">
+      <p class="engruna"><a href="index.html">Inici</a> › El Centre</p>
+      <h1>El Centre</h1>
+      <p>Coneix l'IES Calvià: la nostra missió, el nostre equip i la nostra comunitat</p>
+    </div>
+  </header>
+
+  <!-- QUI SOM -->
+  <section class="seccio seccio-fons" id="qui-som">
+    <div class="contenidor">
+      <div class="seccio-cap" style="text-align:left">
+        <span class="etiqueta-seccio">El centre</span>
+        <h2>Qui som</h2>
+      </div>
+      <div class="graella-cards graella-2">
+        <div>
+          <p>
+            L'IES Calvià és un institut d'educació secundària ubicat al municipi de Calvià, a Mallorca.
+            Oferim una àmplia oferta formativa que va des de l'Educació Secundària Obligatòria fins a
+            cicles formatius de grau superior, passant pel Batxillerat en quatre modalitats.
+          </p>
+          <p>
+            Som un centre compromès amb la <strong>qualitat educativa</strong>, la <strong>convivència</strong>
+            i la <strong>inclusió</strong>. Treballem perquè cada alumne pugui desenvolupar al màxim el seu
+            potencial en un entorn segur, respectuós i estimulant.
+          </p>
+          <p>
+            El centre participa activament en nombrosos projectes educatius, de convivència i d'innovació,
+            i manté vincles amb la Unió Europea a través del programa <strong>Erasmus+</strong>.
+          </p>
+        </div>
+        <div>
+          <div class="xifres" style="border-radius:var(--radius-gran);padding:2rem">
+            <div class="xifres-graella" style="grid-template-columns:1fr 1fr;gap:1.5rem">
+              <div class="xifra-item"><div class="numero">+800</div><div class="descripcio">Alumnes</div></div>
+              <div class="xifra-item"><div class="numero">60+</div><div class="descripcio">Professors</div></div>
+              <div class="xifra-item"><div class="numero">15+</div><div class="descripcio">Projectes</div></div>
+              <div class="xifra-item"><div class="numero">35</div><div class="descripcio">Anys d'història</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIP DIRECTIU -->
+  <section class="seccio" id="equip-directiu">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">Organització</span>
+        <h2>Equip directiu</h2>
+        <p>El grup de persones responsables de la gestió i direcció del centre educatiu.</p>
+      </div>
+      <!-- NOTA: Actualitza els noms a data/contingut.js → equip_directiu -->
+      <div class="graella-cards graella-4">
+        <div class="equip-card">
+          <div class="equip-avatar">👩‍💼</div>
+          <div class="equip-carrec">Direcció</div>
+          <div class="equip-nom">Directora / Director</div>
+        </div>
+        <div class="equip-card">
+          <div class="equip-avatar">👨‍🏫</div>
+          <div class="equip-carrec">Cap d'Estudis</div>
+          <div class="equip-nom">Cap d'Estudis ESO/Batx.</div>
+        </div>
+        <div class="equip-card">
+          <div class="equip-avatar">👩‍💻</div>
+          <div class="equip-carrec">Secretaria</div>
+          <div class="equip-nom">Secretari/a del Centre</div>
+        </div>
+        <div class="equip-card">
+          <div class="equip-avatar">👨‍🍳</div>
+          <div class="equip-carrec">Cap d'Estudis FP</div>
+          <div class="equip-nom">Cap d'Estudis de FP</div>
+        </div>
+      </div>
+      <div class="avis" style="margin-top:2rem">
+        ✏️ <strong>Nota de manteniment:</strong> Per actualitzar els noms de l'equip directiu, edita el fitxer
+        <code>data/contingut.js</code> i modifica l'apartat <code>equip_directiu</code>.
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTAMENTS -->
+  <section class="seccio seccio-fons" id="departaments">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">Àrees acadèmiques</span>
+        <h2>Departaments didàctics</h2>
+        <p>Els departaments agrupen el professorat per àrees de coneixement i coordinen la seva tasca docent.</p>
+      </div>
+
+      <!-- FILTRE -->
+      <div class="dept-filtres">
+        <button class="dept-filtre-btn actiu" data-filtre="tots">Tots</button>
+        <button class="dept-filtre-btn" data-filtre="eso-bat">ESO i Batxillerat</button>
+        <button class="dept-filtre-btn" data-filtre="fp">Formació Professional</button>
+      </div>
+
+      <!-- DEPARTAMENTS ESO / BATXILLERAT -->
+      <div class="dept-grup" data-grup="eso-bat">
+        <h3 class="dept-grup-titol">📚 ESO i Batxillerat</h3>
+        <div class="dept-cards-graella">
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🧭</span>
+              <div>
+                <h4>Orientació</h4>
+                <span class="dept-tag">13 professionals</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Jaime Pascual Salom</span>
+              <a href="mailto:jpascualsalom@ibeducacio.eu" class="dept-email">jpascualsalom@ibeducacio.eu</a>
+            </div>
+            <p class="dept-desc">Orientadors especialitzats per nivells (1r–2n ESO, 3r–4t ESO, Batxillerat, FP). Inclou psicòleg i personal de suport.</p>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">📖</span>
+              <div>
+                <h4>Castellà: Llengua i Literatura</h4>
+                <span class="dept-tag">8 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Helena Ferrà Cerdà</span>
+              <a href="mailto:hferracerda@ibeducacio.eu" class="dept-email">hferracerda@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">📗</span>
+              <div>
+                <h4>Català: Llengua i Literatura</h4>
+                <span class="dept-tag">9 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Maria Serrano Pujol</span>
+              <a href="mailto:mserranopujol@ibeducacio.eu" class="dept-email">mserranopujol@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🌍</span>
+              <div>
+                <h4>Anglès i Alemany</h4>
+                <span class="dept-tag">20 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Raquel Marquez Mota</span>
+              <a href="mailto:rmarquezmota@ibeducacio.eu" class="dept-email">rmarquezmota@ibeducacio.eu</a>
+            </div>
+            <p class="dept-desc">Departament més gran del centre. Cobertura a tots els nivells d'ESO i Batxillerat.</p>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🗺️</span>
+              <div>
+                <h4>Geografia i Història</h4>
+                <span class="dept-tag">10 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Miquel Puigserver Sales</span>
+              <a href="mailto:mpuigserversales@ibeducacio.eu" class="dept-email">mpuigserversales@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🎵</span>
+              <div>
+                <h4>Música</h4>
+                <span class="dept-tag">5 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Lidón Soligó Prades</span>
+              <a href="mailto:lsoligoprades@ibeducacio.eu" class="dept-email">lsoligoprades@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🎨</span>
+              <div>
+                <h4>Dibuix</h4>
+                <span class="dept-tag">5 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Margalida Bal·le Coll</span>
+              <a href="mailto:mballecoll@ibeducacio.eu" class="dept-email">mballecoll@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">💭</span>
+              <div>
+                <h4>Filosofia, Economia i Llatí</h4>
+                <span class="dept-tag">8 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Rubén Esteve Maurell</span>
+              <a href="mailto:restevemaurell@ibeducacio.eu" class="dept-email">restevemaurell@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🔢</span>
+              <div>
+                <h4>Matemàtiques</h4>
+                <span class="dept-tag">14 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Laila Al-Hasani Maturano</span>
+              <a href="mailto:lalhasanimaturano@ibeducacio.eu" class="dept-email">lalhasanimaturano@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">⚗️</span>
+              <div>
+                <h4>Física i Química</h4>
+                <span class="dept-tag">6 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Agostina Ailén Barta Guevara</span>
+              <a href="mailto:abartaguevara@ibeducacio.eu" class="dept-email">abartaguevara@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🧬</span>
+              <div>
+                <h4>Biologia i Geologia</h4>
+                <span class="dept-tag">8 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Raquel Martí Peirona</span>
+              <a href="mailto:rmartipeirona@ibeducacio.eu" class="dept-email">rmartipeirona@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">⚙️</span>
+              <div>
+                <h4>Tecnologia</h4>
+                <span class="dept-tag">8 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Elvira Lopez Navarro</span>
+              <a href="mailto:elopeznavarro@ibeducacio.eu" class="dept-email">elopeznavarro@ibeducacio.eu</a>
+            </div>
+          </div>
+
+          <div class="dept-card">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🏃</span>
+              <div>
+                <h4>Educació Física</h4>
+                <span class="dept-tag">5 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Miquel Sureda Rosselló</span>
+              <a href="mailto:msuredarossello1@ibeducacio.eu" class="dept-email">msuredarossello1@ibeducacio.eu</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DEPARTAMENTS FP -->
+      <div class="dept-grup" data-grup="fp" style="margin-top:2.5rem">
+        <h3 class="dept-grup-titol">🎓 Formació Professional</h3>
+        <div class="dept-cards-graella">
+
+          <div class="dept-card dept-card-fp">
+            <div class="dept-card-cap">
+              <span class="dept-icona">📊</span>
+              <div>
+                <h4>Administració i Comerç</h4>
+                <span class="dept-tag dept-tag-fp">13 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Marga Payeras Ballester</span>
+              <a href="mailto:mpayerasballester@ibeducacio.eu" class="dept-email">mpayerasballester@ibeducacio.eu</a>
+            </div>
+            <p class="dept-desc">Gestió Administrativa (CFGM), Màrqueting i Publicitat (CFGS), Gestió Administrativa i Finances (CFGS). Inclou sessions vespertines.</p>
+          </div>
+
+          <div class="dept-card dept-card-fp">
+            <div class="dept-card-cap">
+              <span class="dept-icona">🍽️</span>
+              <div>
+                <h4>Hostaleria i Turisme</h4>
+                <span class="dept-tag dept-tag-fp">22 professors</span>
+              </div>
+            </div>
+            <div class="dept-cap-info">
+              <span class="dept-label">Cap de departament</span>
+              <span class="dept-nom">Antònia Maria Anglada Gomila</span>
+              <a href="mailto:aangladagomila@ibeducacio.eu" class="dept-email">aangladagomila@ibeducacio.eu</a>
+            </div>
+            <p class="dept-desc">Cuina i Restauració (CFGB), Cuina i Gastronomia i Serveis en Restauració (CFGM), Direcció de Cuina i Gestió d'Allotjaments Turístics (CFGS). Certificats de professionalitat en operacions bàsiques.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCUMENTS INSTITUCIONALS -->
+  <section class="seccio" id="documents">
+    <div class="contenidor">
+      <div class="seccio-cap" style="text-align:left">
+        <span class="etiqueta-seccio">Documentació</span>
+        <h2>Documents institucionals</h2>
+      </div>
+      <div class="graella-cards graella-3">
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📘</div>
+            <h3>Projecte Educatiu de Centre (PEC)</h3>
+            <p>El document que defineix la identitat, els valors i els objectius educatius del centre.</p>
+            <a href="#" class="btn btn-secundari" style="margin-top:1rem">Descarregar PDF</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📗</div>
+            <h3>Normes d'Organització i Funcionament (NOFC)</h3>
+            <p>El reglament que regula la vida interna del centre: drets, deures i normes de convivència.</p>
+            <a href="#" class="btn btn-secundari" style="margin-top:1rem">Descarregar PDF</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📙</div>
+            <h3>Pla d'Acció Tutorial (PAT)</h3>
+            <p>El pla que orienta l'acció tutorial i el suport a l'alumnat al llarg del curs escolar.</p>
+            <a href="#" class="btn btn-secundari" style="margin-top:1rem">Descarregar PDF</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📕</div>
+            <h3>Pla d'Atenció a la Diversitat</h3>
+            <p>Les mesures i recursos per atendre les necessitats específiques de suport educatiu.</p>
+            <a href="#" class="btn btn-secundari" style="margin-top:1rem">Descarregar PDF</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📃</div>
+            <h3>Programació General Anual (PGA)</h3>
+            <p>La planificació de totes les activitats, projectes i objectius del curs escolar en curs.</p>
+            <a href="#" class="btn btn-secundari" style="margin-top:1rem">Descarregar PDF</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-cos">
+            <div class="card-icona">📊</div>
+            <h3>Memòria Anual</h3>
+            <p>El balanç de les activitats i resultats del curs escolar anterior.</p>
+            <a href="#" class="btn btn-secundari" style="margin-top:1rem">Descarregar PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="avis" style="margin-top:2rem">
+        ✏️ <strong>Nota de manteniment:</strong> Canvia els atributs <code>href="#"</code> de cada botó per l'URL real del document PDF.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTE I UBICACIÓ -->
+  <section class="seccio seccio-fons" id="contacte">
+    <div class="contenidor">
+      <div class="seccio-cap">
+        <span class="etiqueta-seccio">On som</span>
+        <h2>Contacte i ubicació</h2>
+      </div>
+      <!-- Les dades es poden editar a data/contingut.js -->
+      <div id="contacte-contenidor"><!-- renderitzat per JS --></div>
+
+      <!-- Mapa -->
+      <div class="mapa-contenidor" style="margin-top:2rem">
+        <div>
+          <p style="font-size:1.5rem;margin-bottom:0.5rem">📍</p>
+          <p><strong>IES Calvià</strong></p>
+          <p>Carrer de l'Escola, s/n — 07184 Calvià, Mallorca</p>
+          <br>
+          <a href="https://maps.google.com/?q=IES+Calvia+Mallorca" target="_blank" rel="noopener" class="btn btn-secundari">
+            Obrir a Google Maps
+          </a>
+          <p style="margin-top:1rem;font-size:0.82rem;color:var(--color-text-suau)">
+            ✏️ Nota: Substitueix aquest bloc per un iframe de Google Maps quan tinguis la URL correcta.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+            <li><a href="erasmus.html">Erasmus+</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
+            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
+            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
+            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Filtre de departaments
+    document.querySelectorAll('.dept-filtre-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.dept-filtre-btn').forEach(b => b.classList.remove('actiu'));
+        btn.classList.add('actiu');
+        const filtre = btn.dataset.filtre;
+        document.querySelectorAll('.dept-grup').forEach(grup => {
+          if (filtre === 'tots' || grup.dataset.grup === filtre) {
+            grup.classList.remove('ocult');
+          } else {
+            grup.classList.add('ocult');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

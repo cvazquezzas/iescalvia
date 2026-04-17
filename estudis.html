@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oferta educativa de l'IES Calvià: ESO, Batxillerat i Formació Professional (cuina, restauració, turisme, administració, màrqueting).">
+  <title>Estudis — IES Calvià</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- BANER SUPERIOR -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓ -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link actiu">Estudis <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="#eso">ESO</a></li>
+            <li><a href="#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">Alumnes i famílies <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link">Centre <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="centre.html#qui-som">Qui som</a></li>
+            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
+            <li><a href="centre.html#departaments">Departaments</a></li>
+            <li><a href="centre.html#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="centre.html#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link">Projectes <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
+            <li><a href="projectes.html#educatius">Programes educatius</a></li>
+            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
+            <li><a href="projectes.html#biblioteca">Biblioteca</a></li>
+            <li><a href="projectes.html#extraescolars">Activitats extraescolars</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a></li>
+        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CAPÇALERA DE PÀGINA -->
+  <header class="pagina-hero">
+    <div class="contenidor">
+      <p class="engruna"><a href="index.html">Inici</a> › Estudis</p>
+      <h1>Oferta educativa</h1>
+      <p>ESO, Batxillerat i Formació Professional al cor de Calvià</p>
+    </div>
+  </header>
+
+  <!-- TABS DE NAVEGACIÓ -->
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+      <div class="nivell-tabs">
+        <button class="tab-btn actiu" data-tab="tab-eso">📚 ESO</button>
+        <button class="tab-btn" data-tab="tab-batxillerat">🎓 Batxillerat</button>
+        <button class="tab-btn" data-tab="tab-fp-basic">FP Grau Bàsic</button>
+        <button class="tab-btn" data-tab="tab-fp-mitja">FP Grau Mitjà</button>
+        <button class="tab-btn" data-tab="tab-fp-superior">FP Grau Superior</button>
+      </div>
+
+      <!-- ===== ESO ===== -->
+      <div id="tab-eso" class="tab-contingut actiu" id="eso">
+        <div class="info-box" style="margin-bottom:2rem">
+          <strong>Educació Secundària Obligatòria (ESO)</strong> — 4 cursos, de 1r a 4t, per a alumnes d'entre 12 i 16 anys.
+          És l'etapa obligatòria que dona accés al Batxillerat o a la Formació Professional.
+        </div>
+        <div class="graella-cards graella-2">
+          <div class="cicle-card">
+            <span class="cicle-nivell">1r ESO</span>
+            <h3>Primer curs d'ESO</h3>
+            <p>Introducció a les matèries troncals: matemàtiques, llengua, ciències naturals, ciències socials, educació física i idiomes.</p>
+          </div>
+          <div class="cicle-card">
+            <span class="cicle-nivell">2n ESO</span>
+            <h3>Segon curs d'ESO</h3>
+            <p>Consolidació de continguts i introducció progressiva a àrees com la tecnologia, la música i la plàstica.</p>
+          </div>
+          <div class="cicle-card">
+            <span class="cicle-nivell">3r ESO</span>
+            <h3>Tercer curs d'ESO</h3>
+            <p>Aprofundiment en les matèries i primera orientació acadèmica per a la tria de l'itinerari formatiu.</p>
+          </div>
+          <div class="cicle-card">
+            <span class="cicle-nivell">4t ESO</span>
+            <h3>Quart curs d'ESO</h3>
+            <p>Curs de maduresa. Els alumnes trien entre optatives acadèmiques (cap al Batxillerat) o aplicades (cap a FP).</p>
+          </div>
+        </div>
+        <div class="avis" style="margin-top:2rem">
+          💡 <strong>Informació d'admissió:</strong> Per a qualsevol consulta sobre matrícula o admissió, contacta amb la
+          <a href="secretaria.html">secretaria del centre</a>.
+        </div>
+      </div>
+
+      <!-- ===== BATXILLERAT ===== -->
+      <div id="tab-batxillerat" class="tab-contingut" id="batxillerat">
+        <div class="info-box" style="margin-bottom:2rem">
+          <strong>Batxillerat</strong> — 2 cursos (1r i 2n Batxillerat). Prepara l'alumnat per a les PAU (accés a la universitat)
+          o per a cicles formatius de grau superior. L'IES Calvià ofereix quatre modalitats.
+        </div>
+        <div class="graella-cards graella-2">
+          <div class="cicle-card" style="border-left-color: #8e44ad;">
+            <span class="cicle-nivell" style="background:rgba(142,68,173,0.1);color:#8e44ad">Batxillerat</span>
+            <h3>Batxillerat General</h3>
+            <p>Modalitat polivalent que combina matèries de diverses àrees, ideal per a alumnes amb interessos amplis i diversificats.</p>
+          </div>
+          <div class="cicle-card" style="border-left-color: #e74c3c;">
+            <span class="cicle-nivell" style="background:rgba(231,76,60,0.1);color:#e74c3c">Batxillerat</span>
+            <h3>Batxillerat Científic</h3>
+            <p>Orientat a les ciències i la tecnologia: matemàtiques, física, química i biologia. Accés a graus universitaris tècnics i de ciències.</p>
+          </div>
+          <div class="cicle-card" style="border-left-color: #e67e22;">
+            <span class="cicle-nivell" style="background:rgba(230,126,34,0.1);color:#e67e22">Batxillerat</span>
+            <h3>Batxillerat Artístic</h3>
+            <p>Foment de la creativitat i l'expressió artística. Dibuix, disseny, història de l'art i matèries específiques de les arts visuals.</p>
+          </div>
+          <div class="cicle-card" style="border-left-color: #27ae60;">
+            <span class="cicle-nivell" style="background:rgba(39,174,96,0.1);color:#27ae60">Batxillerat</span>
+            <h3>Batxillerat Social-Humanístic</h3>
+            <p>Ciències socials, economia, història, llatí i filosofia. Ideal per accedir a carreres de dret, economia, pedagogia o periodisme.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FP BÀSIC ===== -->
+      <div id="tab-fp-basic" class="tab-contingut" id="fp-basic">
+        <div class="info-box" style="margin-bottom:2rem">
+          <strong>FP de Grau Bàsic</strong> — Per a alumnes a partir de 15 anys que volen obtenir el Títol de Graduat en ESO
+          mentre adquireixen competències professionals pràctiques.
+        </div>
+        <div class="avis">
+          📋 Per obtenir informació actualitzada sobre l'oferta de grau bàsic disponible per al curs 2025-26,
+          contacta amb la <a href="secretaria.html">secretaria del centre</a> o l'<a href="alumnes-families.html">orientació educativa</a>.
+        </div>
+        <div class="cicle-card" style="margin-top:1.5rem">
+          <span class="cicle-nivell">Grau Bàsic</span>
+          <h3>Programes de FP Bàsica</h3>
+          <p>
+            Els cicles de grau bàsic combinen formació general i professional. En finalitzar, l'alumnat obté el títol
+            d'Educació Secundària i pot accedir a cicles de grau mitjà. Consulta la secretaria per a l'oferta del curs actual.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== FP MITJÀ ===== -->
+      <div id="tab-fp-mitja" class="tab-contingut" id="fp-mitja">
+        <div class="info-box" style="margin-bottom:2rem">
+          <strong>Cicles Formatius de Grau Mitjà</strong> — Per a alumnes amb el títol de Graduat en ESO o equivalent.
+          En finalitzar s'obté el títol de Tècnic i accés a cicles de grau superior.
+        </div>
+        <div class="graella-cards graella-3">
+          <div class="cicle-card">
+            <span class="cicle-nivell">Grau Mitjà · Hostaleria</span>
+            <h3>Cuina i Gastronomia</h3>
+            <p>
+              Formació en tècniques culinàries, pastisseria, gestió d'aprovisionaments i cultura gastronòmica.
+              Pràctiques al restaurant pedagògic del centre.
+            </p>
+          </div>
+          <div class="cicle-card">
+            <span class="cicle-nivell">Grau Mitjà · Administració</span>
+            <h3>Gestió Administrativa</h3>
+            <p>
+              Comptabilitat bàsica, gestió documental, atenció al client i eines informàtiques d'oficina.
+              Formació en pràctiques en empreses de la zona.
+            </p>
+          </div>
+          <div class="cicle-card">
+            <span class="cicle-nivell">Grau Mitjà · Hostaleria</span>
+            <h3>Serveis en Restauració</h3>
+            <p>
+              Tècniques de sala i bar, atenció al client, elaboració de còctels i gestió d'establiments de restauració.
+            </p>
+          </div>
+        </div>
+        <div class="info-box accent" style="margin-top:1.5rem">
+          🍽️ <strong>Restaurant pedagògic:</strong> L'alumnat de cuina i restauració practica en el nostre restaurant obert al públic.
+          Podeu fer reserves contactant amb el centre.
+        </div>
+      </div>
+
+      <!-- ===== FP SUPERIOR ===== -->
+      <div id="tab-fp-superior" class="tab-contingut" id="fp-superior">
+        <div class="info-box" style="margin-bottom:2rem">
+          <strong>Cicles Formatius de Grau Superior</strong> — Accés amb Batxillerat, títol de Tècnic o superació de la prova d'accés.
+          En finalitzar s'obté el títol de Tècnic Superior, equivalent a nivell universitari de grau.
+        </div>
+        <div class="graella-cards graella-2">
+          <div class="cicle-card" style="border-left-color: #e8a838;">
+            <span class="cicle-nivell" style="background:rgba(232,168,56,0.15);color:#c47f00">Grau Superior · Màrqueting</span>
+            <h3>Màrqueting i Publicitat</h3>
+            <p>
+              Estratègies de màrqueting digital i tradicional, publicitat, investigació de mercat i gestió de marques.
+              Perfil molt demandat per empreses del sector turístic de les Illes.
+            </p>
+          </div>
+          <div class="cicle-card" style="border-left-color: #e8a838;">
+            <span class="cicle-nivell" style="background:rgba(232,168,56,0.15);color:#c47f00">Grau Superior · Hostaleria</span>
+            <h3>Direcció de Cuina</h3>
+            <p>
+              Gestió d'equips de cuina, disseny de cartes, control de costos i gastronomia d'alt nivell.
+              Sortides professionals en hotels, restaurants i càtering.
+            </p>
+          </div>
+          <div class="cicle-card" style="border-left-color: #e8a838;">
+            <span class="cicle-nivell" style="background:rgba(232,168,56,0.15);color:#c47f00">Grau Superior · Turisme</span>
+            <h3>Gestió d'Allotjaments Turístics</h3>
+            <p>
+              Organització i gestió d'hotels, apartaments i establiments turístics. Especialment adequat per al mercat de les Illes Balears.
+            </p>
+          </div>
+          <div class="cicle-card" style="border-left-color: #e8a838;">
+            <span class="cicle-nivell" style="background:rgba(232,168,56,0.15);color:#c47f00">Grau Superior · Administració</span>
+            <h3>Gestió Administrativa i Finances</h3>
+            <p>
+              Comptabilitat avançada, fiscalitat, recursos humans, gestió financera i assessoria jurídica d'empreses.
+            </p>
+          </div>
+        </div>
+        <div class="info-box" style="margin-top:1.5rem">
+          💼 <strong>Borsa de treball:</strong> El centre disposa d'una borsa de treball per ajudar els titulats a trobar feina
+          en empreses col·laboradores. Contacta amb secretaria per a més informació.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="#eso">ESO</a></li>
+            <li><a href="#batxillerat">Batxillerat</a></li>
+            <li><a href="#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+            <li><a href="erasmus.html">Erasmus+</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
+            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
+            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
+            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

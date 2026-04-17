@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Totes les notícies i novetats de l'IES Calvià.">
+  <title>Notícies — IES Calvià</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- BANER SUPERIOR -->
+  <div class="baner-superior">
+    <div class="contenidor">
+      <div class="baner-info">
+        <span>📍 Calvià, Mallorca</span>
+        <span>📞 <a href="tel:971139200">971 139 200</a></span>
+        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
+      </div>
+      <div class="baner-social">
+        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓ -->
+  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
+    <div class="contenidor nav-interior">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icona">IES</div>
+        IES Calvià
+      </a>
+      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
+        <li class="nav-item">
+          <a href="estudis.html" class="nav-link">Estudis <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <div class="separador"></div>
+            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="alumnes-families.html" class="nav-link">Alumnes i famílies <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="alumnes-families.html#justificacio">Justificació de faltes</a></li>
+            <li><a href="alumnes-families.html#transport">Transport escolar</a></li>
+            <li><a href="alumnes-families.html#horaris">Horaris del professorat</a></li>
+            <li><a href="alumnes-families.html#amipa">AMIPA</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="centre.html" class="nav-link">Centre <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="centre.html#qui-som">Qui som</a></li>
+            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
+            <li><a href="centre.html#departaments">Departaments</a></li>
+            <li><a href="centre.html#documents">Documents institucionals</a></li>
+            <div class="separador"></div>
+            <li><a href="centre.html#contacte">On som · Contacte</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
+        <li class="nav-item">
+          <a href="projectes.html" class="nav-link">Projectes <span class="flexa">▾</span></a>
+          <ul class="submenu">
+            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
+            <li><a href="projectes.html#educatius">Programes educatius</a></li>
+            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
+            <li><a href="projectes.html#biblioteca">Biblioteca</a></li>
+            <li><a href="projectes.html#extraescolars">Activitats extraescolars</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a></li>
+        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CAPÇALERA -->
+  <header class="pagina-hero">
+    <div class="contenidor">
+      <p class="engruna"><a href="index.html">Inici</a> › Notícies</p>
+      <h1>Notícies i actualitat</h1>
+      <p>Tota l'activitat i les novetats de l'IES Calvià</p>
+    </div>
+  </header>
+
+  <!-- FILTRE PER CATEGORIA -->
+  <section class="seccio seccio-fons">
+    <div class="contenidor">
+      <div style="margin-bottom:2rem">
+        <div class="nivell-tabs" id="filtres-noticies">
+          <button class="tab-btn actiu" data-categoria="totes">Totes</button>
+          <button class="tab-btn" data-categoria="ESO">ESO</button>
+          <button class="tab-btn" data-categoria="Batxillerat">Batxillerat</button>
+          <button class="tab-btn" data-categoria="FP">FP</button>
+          <button class="tab-btn" data-categoria="Centre">Centre</button>
+          <button class="tab-btn" data-categoria="Projectes">Projectes</button>
+          <button class="tab-btn" data-categoria="Erasmus+">Erasmus+</button>
+        </div>
+      </div>
+      <!-- Totes les notícies, renderitzades per JS -->
+      <div id="noticies-totes" class="graella-cards graella-3">
+        <p>Carregant notícies…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="peu" role="contentinfo">
+    <div class="contenidor">
+      <div class="peu-graella">
+        <div>
+          <div class="peu-logo">IES <span>Calvià</span></div>
+          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
+          <div class="peu-social">
+            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+        <div>
+          <h4>Estudis</h4>
+          <ul>
+            <li><a href="estudis.html#eso">ESO</a></li>
+            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
+            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
+            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informació</h4>
+          <ul>
+            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
+            <li><a href="secretaria.html">Secretaria</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="calendari.html">Calendari escolar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacte</h4>
+          <ul class="peu-contacte">
+            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
+            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
+            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
+            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="peu-inferior">
+        <span>© 2025 IES Calvià — Tots els drets reservats</span>
+        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/contingut.js"></script>
+  <script src="data/noticias.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Filtre de notícies per categoria (específic d'aquesta pàgina)
+    document.addEventListener('DOMContentLoaded', () => {
+      const botons = document.querySelectorAll('#filtres-noticies .tab-btn');
+      botons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          botons.forEach(b => b.classList.remove('actiu'));
+          btn.classList.add('actiu');
+          const cat = btn.dataset.categoria;
+          const contenidor = document.getElementById('noticies-totes');
+          if (!contenidor) return;
+
+          let noticies = [...NOTICIES].sort((a, b) => {
+            const [da, ma, ya] = a.data.split('/').map(Number);
+            const [db, mb, yb] = b.data.split('/').map(Number);
+            return new Date(yb, mb - 1, db) - new Date(ya, ma - 1, da);
+          });
+
+          if (cat !== 'totes') noticies = noticies.filter(n => n.categoria === cat);
+
+          if (noticies.length === 0) {
+            contenidor.innerHTML = '<p style="color:var(--color-text-suau);grid-column:1/-1">No hi ha notícies en aquesta categoria.</p>';
+            return;
+          }
+
+          contenidor.innerHTML = noticies.map(n => `
+            <article class="noticia-card">
+              <div class="noticia-cap-color"></div>
+              <div class="noticia-cos">
+                <div class="noticia-meta">
+                  <span class="noticia-categoria">${n.categoria}</span>
+                  <span class="noticia-data">📅 ${n.data}</span>
+                </div>
+                <h3>${n.titol}</h3>
+                <p>${n.resum}</p>
+                ${n.url ? `<a href="${n.url}" class="noticia-link" target="_blank" rel="noopener">Llegir més →</a>` : ''}
+              </div>
+            </article>
+          `).join('');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
