@@ -12,78 +12,8 @@
 <body>
 
   <!-- BANER SUPERIOR -->
-  <div class="baner-superior">
-    <div class="contenidor">
-      <div class="baner-info">
-        <span>📍 Calvià, Mallorca</span>
-        <span>📞 <a href="tel:971139200">971 139 200</a></span>
-        <span>✉️ <a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></span>
-      </div>
-      <div class="baner-social">
-        <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
-      </div>
-    </div>
-  </div>
 
-  <!-- NAVEGACIÓ -->
-  <nav class="nav-principal" role="navigation" aria-label="Navegació principal">
-    <div class="contenidor nav-interior">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icona">IES</div>
-        IES Calvià
-      </a>
-      <button class="nav-hamburguesa" aria-label="Obrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu" role="list">
-        <li class="nav-item"><a href="index.html" class="nav-link">Inici</a></li>
-        <li class="nav-item">
-          <a href="estudis.html" class="nav-link">Estudis <span class="flexa">▾</span></a>
-          <ul class="submenu">
-            <li><a href="estudis.html#eso">ESO</a></li>
-            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
-            <div class="separador"></div>
-            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
-            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
-            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="alumnes-families.html" class="nav-link actiu">Alumnes i famílies <span class="flexa">▾</span></a>
-          <ul class="submenu">
-            <li><a href="#justificacio">Justificació de faltes</a></li>
-            <li><a href="#transport">Transport escolar</a></li>
-            <li><a href="#horaris">Horaris del professorat</a></li>
-            <li><a href="#amipa">AMIPA</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="centre.html" class="nav-link">Centre <span class="flexa">▾</span></a>
-          <ul class="submenu">
-            <li><a href="centre.html#qui-som">Qui som</a></li>
-            <li><a href="centre.html#equip-directiu">Equip directiu</a></li>
-            <li><a href="centre.html#departaments">Departaments</a></li>
-            <li><a href="centre.html#documents">Documents institucionals</a></li>
-            <div class="separador"></div>
-            <li><a href="centre.html#contacte">On som · Contacte</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="secretaria.html" class="nav-link">Secretaria</a></li>
-        <li class="nav-item">
-          <a href="projectes.html" class="nav-link">Projectes <span class="flexa">▾</span></a>
-          <ul class="submenu">
-            <li><a href="projectes.html#benestar">Benestar i convivència</a></li>
-            <li><a href="projectes.html#educatius">Programes educatius</a></li>
-            <li><a href="projectes.html#llengua">Llengua i cultura</a></li>
-            <li><a href="projectes.html#biblioteca">Biblioteca</a></li>
-            <li><a href="projectes.html#extraescolars">Activitats extraescolars</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="calendari.html" class="nav-link nav-especial">📅 Calendari</a></li>
-        <li class="nav-item"><a href="erasmus.html" class="nav-link nav-especial">Erasmus+</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div data-include="partials/header.html"></div>
 
   <!-- CAPÇALERA -->
   <header class="pagina-hero">
@@ -291,53 +221,10 @@
   </section>
 
   <!-- PEU DE PÀGINA -->
-  <footer class="peu" role="contentinfo">
-    <div class="contenidor">
-      <div class="peu-graella">
-        <div>
-          <div class="peu-logo">IES <span>Calvià</span></div>
-          <p>Institut d'Educació Secundària de Calvià. Aprenentatge, convivència i futur a Mallorca.</p>
-          <div class="peu-social">
-            <a href="https://www.instagram.com/repte_ies_calvia" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
-          </div>
-        </div>
-        <div>
-          <h4>Estudis</h4>
-          <ul>
-            <li><a href="estudis.html#eso">ESO</a></li>
-            <li><a href="estudis.html#batxillerat">Batxillerat</a></li>
-            <li><a href="estudis.html#fp-basic">FP Grau Bàsic</a></li>
-            <li><a href="estudis.html#fp-mitja">FP Grau Mitjà</a></li>
-            <li><a href="estudis.html#fp-superior">FP Grau Superior</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Informació</h4>
-          <ul>
-            <li><a href="alumnes-families.html">Alumnes i famílies</a></li>
-            <li><a href="secretaria.html">Secretaria</a></li>
-            <li><a href="projectes.html">Projectes</a></li>
-            <li><a href="calendari.html">Calendari escolar</a></li>
-            <li><a href="erasmus.html">Erasmus+</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contacte</h4>
-          <ul class="peu-contacte">
-            <li><span class="ico">📍</span><span>Carrer de l'Escola, s/n<br>07184 Calvià, Mallorca</span></li>
-            <li><span class="ico">📞</span><a href="tel:971139200">971 139 200</a></li>
-            <li><span class="ico">✉️</span><a href="mailto:ies.calvia@educacio.caib.es">ies.calvia@educacio.caib.es</a></li>
-            <li><span class="ico">🕐</span><span>Secretaria: Dl–Dv 8:30–14:00</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="peu-inferior">
-        <span>© 2025 IES Calvià — Tots els drets reservats</span>
-        <div class="ue-logo"><span>🇪🇺</span><span>Projectes cofinançats per la Unió Europea</span></div>
-      </div>
-    </div>
-  </footer>
 
+  <div data-include="partials/footer.html"></div>
+
+  <script src="js/includes.js"></script>
   <script src="data/contingut.js"></script>
   <script src="data/noticias.js"></script>
   <script src="data/departaments.js"></script>

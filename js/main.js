@@ -2,62 +2,6 @@
    IES CALVIÀ — JavaScript principal
    ============================================================= */
 
-/* --- Navegació mòbil --- */
-(function () {
-  const hamburguesa = document.querySelector('.nav-hamburguesa');
-  const menu = document.querySelector('.nav-menu');
-
-  if (!hamburguesa || !menu) return;
-
-  hamburguesa.addEventListener('click', () => {
-    const obert = menu.classList.toggle('obert');
-    hamburguesa.setAttribute('aria-expanded', obert);
-    document.body.style.overflow = obert ? 'hidden' : '';
-  });
-
-  // Submenús en mòbil (clic en lloc de hover)
-  document.querySelectorAll('.nav-item').forEach(item => {
-    const link = item.querySelector('.nav-link');
-    const sub  = item.querySelector('.submenu');
-    if (!sub || !link) return;
-
-    link.addEventListener('click', e => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        sub.classList.toggle('obert');
-      }
-    });
-  });
-
-  // Tancar menú en redimensionar
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      menu.classList.remove('obert');
-      document.body.style.overflow = '';
-      document.querySelectorAll('.submenu').forEach(s => s.classList.remove('obert'));
-    }
-  });
-
-  // Tancar menú en prémer Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      menu.classList.remove('obert');
-      document.body.style.overflow = '';
-    }
-  });
-})();
-
-/* --- Marcar l'enllaç actiu de la nav --- */
-(function () {
-  const paginaActual = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && href === paginaActual) {
-      a.classList.add('actiu');
-    }
-  });
-})();
-
 /* --- Colors de fallback per categoria (quan no hi ha imatge) --- */
 const COLORS_CATEGORIA = {
   'ESO':         'linear-gradient(135deg, #2980b9, #6dd5fa)',
@@ -69,9 +13,7 @@ const COLORS_CATEGORIA = {
 };
 
 function capImatge(n) {
-  if (n.imatge) {
-    return `background-image:url('${n.imatge}')`;
-  }
+  if (n.imatge) return `background-image:url('${n.imatge}')`;
   return `background:${COLORS_CATEGORIA[n.categoria] || 'linear-gradient(135deg,var(--color-accent),var(--color-secundari))'}`;
 }
 
@@ -133,7 +75,6 @@ function renderitzarContacte(contenidorId) {
   if (!contenidor || typeof CENTRE === 'undefined') return;
 
   const { adreca, telefon, email, horari_secretaria } = CENTRE;
-
   const horariHTML = horari_secretaria.map(h =>
     `<tr><td>${h.dia}</td><td><strong>${h.hores}</strong></td></tr>`
   ).join('');
@@ -175,37 +116,69 @@ function renderitzarXifres(contenidorId) {
   `).join('');
 }
 
-/* --- Botó tornar a dalt --- */
-(function () {
+/* --- Inicialitzar un cop carregats els parcials --- */
+window.__includesReady.then(function () {
+
+  /* Navegació mòbil */
+  const hamburguesa = document.querySelector('.nav-hamburguesa');
+  const menu = document.querySelector('.nav-menu');
+
+  if (hamburguesa && menu) {
+    hamburguesa.addEventListener('click', () => {
+      const obert = menu.classList.toggle('obert');
+      hamburguesa.setAttribute('aria-expanded', obert);
+      document.body.style.overflow = obert ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const link = item.querySelector('.nav-link');
+      const sub  = item.querySelector('.submenu');
+      if (!sub || !link) return;
+      link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          sub.classList.toggle('obert');
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        menu.classList.remove('obert');
+        document.body.style.overflow = '';
+        document.querySelectorAll('.submenu').forEach(s => s.classList.remove('obert'));
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        menu.classList.remove('obert');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  /* Marcar l'enllaç actiu */
+  const paginaActual = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach(a => {
+    if (a.getAttribute('href') === paginaActual) a.classList.add('actiu');
+  });
+
+  /* Botó tornar a dalt */
   const boto = document.createElement('button');
   boto.className = 'boto-tornar-dalt';
   boto.setAttribute('aria-label', 'Tornar a dalt');
   boto.innerHTML = '↑';
   document.body.appendChild(boto);
-
   window.addEventListener('scroll', () => {
     boto.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
+  boto.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  boto.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
-
-/* --- Inicialitzar en carregar --- */
-document.addEventListener('DOMContentLoaded', () => {
-  // Notícies pàgina d'inici (màx. 6, ordenades)
+  /* Renderitzar contingut dinàmic */
   renderitzarNoticies('noticies-inici', 6, false);
-
-  // Notícies pàgina de notícies (totes)
   renderitzarNoticies('noticies-totes', null, false);
-
-  // Xifres
   renderitzarXifres('xifres-contenidor');
-
-  // Contacte
   renderitzarContacte('contacte-contenidor');
-
-  // Tabs
   inicialitzarTabs();
 });
