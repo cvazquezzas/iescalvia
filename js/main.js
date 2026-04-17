@@ -58,6 +58,23 @@
   });
 })();
 
+/* --- Colors de fallback per categoria (quan no hi ha imatge) --- */
+const COLORS_CATEGORIA = {
+  'ESO':         'linear-gradient(135deg, #2980b9, #6dd5fa)',
+  'Batxillerat': 'linear-gradient(135deg, #8e44ad, #c39bd3)',
+  'FP':          'linear-gradient(135deg, #27ae60, #6fcf97)',
+  'Centre':      'linear-gradient(135deg, #e67e22, #f9ca24)',
+  'Projectes':   'linear-gradient(135deg, #16a085, #1abc9c)',
+  'Erasmus+':    'linear-gradient(135deg, #003399, #f0c000)',
+};
+
+function capImatge(n) {
+  if (n.imatge) {
+    return `background-image:url('${n.imatge}')`;
+  }
+  return `background:${COLORS_CATEGORIA[n.categoria] || 'linear-gradient(135deg,var(--color-accent),var(--color-secundari))'}`;
+}
+
 /* --- Renderitzar notícies --- */
 function renderitzarNoticies(contenidorId, maxItems, nomesDestacades) {
   const contenidor = document.getElementById(contenidorId);
@@ -79,7 +96,7 @@ function renderitzarNoticies(contenidorId, maxItems, nomesDestacades) {
 
   contenidor.innerHTML = noticies.map(n => `
     <article class="noticia-card">
-      <div class="noticia-cap-color"></div>
+      <div class="noticia-cap-imatge" style="${capImatge(n)}" role="img" aria-label="${n.titol}"></div>
       <div class="noticia-cos">
         <div class="noticia-meta">
           <span class="noticia-categoria">${n.categoria}</span>

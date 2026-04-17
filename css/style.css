@@ -468,9 +468,18 @@ p:last-child { margin-bottom: 0; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-.noticia-cap-color {
-  height: 6px;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-secundari));
+.noticia-cap-imatge {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.noticia-cap-imatge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.35) 100%);
 }
 
 .noticia-cos { padding: var(--espai-lg); }

@@ -191,7 +191,7 @@
 
           contenidor.innerHTML = noticies.map(n => `
             <article class="noticia-card">
-              <div class="noticia-cap-color"></div>
+              <div class="noticia-cap-imatge" style="${capImatge(n)}" role="img" aria-label="${n.titol}"></div>
               <div class="noticia-cos">
                 <div class="noticia-meta">
                   <span class="noticia-categoria">${n.categoria}</span>
