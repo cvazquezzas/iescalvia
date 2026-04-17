@@ -48,7 +48,7 @@
 /* === RESET I BASE === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: var(--font-grandaria-base); scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { font-size: var(--font-grandaria-base); scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-principal);
