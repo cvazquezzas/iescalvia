@@ -239,10 +239,14 @@
           </div>
         </div>
       </div>
-      <div class="avis">
-        📋 El llistat d'horaris d'atenció individualitzats per professor s'actualitza cada curs.
-        Consulteu el tauler d'anuncis del centre o demaneu-lo a secretaria.
+      <!-- Buscador -->
+      <div style="margin-bottom:1.5rem">
+        <input type="search" id="cerca-prof" placeholder="Cercar professor/a per nom o departament…"
+          style="width:100%;padding:0.65rem 1rem;border:1px solid var(--color-vora);border-radius:var(--radius);font-size:0.95rem;font-family:inherit;background:var(--color-blanc)">
       </div>
+
+      <!-- Llistat de departaments amb professors -->
+      <div id="horaris-llistat"></div>
     </div>
   </section>
 
@@ -336,6 +340,61 @@
 
   <script src="data/contingut.js"></script>
   <script src="data/noticias.js"></script>
+  <script src="data/departaments.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    function renderitzarHoraris(filtre) {
+      const contenidor = document.getElementById('horaris-llistat');
+      const q = (filtre || '').toLowerCase().trim();
+
+      let html = '';
+      DEPARTAMENTS.forEach(d => {
+        const profs = d.professors.filter(p =>
+          !q ||
+          p.nom.toLowerCase().includes(q) ||
+          d.nom.toLowerCase().includes(q)
+        );
+        if (!profs.length) return;
+
+        const files = profs.map(p => {
+          const esCap = p.nom === d.cap;
+          return `<tr>
+            <td><span style="font-weight:${esCap ? '700' : '500'};color:var(--color-text)">${p.nom}${esCap ? ' <span style="color:var(--color-secundari);font-size:0.75rem">★ cap</span>' : ''}</span></td>
+            <td>${p.email ? `<a href="mailto:${p.email}" style="color:var(--color-secundari);word-break:break-all">${p.email}</a>` : '—'}</td>
+            <td style="font-size:0.88rem;color:${p.horari ? 'var(--color-text)' : 'var(--color-text-suau)'}">${p.horari || 'A consultar'}</td>
+          </tr>`;
+        }).join('');
+
+        html += `
+          <div style="margin-bottom:2rem">
+            <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem">
+              <span>${d.icona}</span> ${d.nom}
+              <span style="font-size:0.75rem;font-weight:600;background:rgba(41,128,185,0.1);color:var(--color-secundari);padding:0.15rem 0.55rem;border-radius:20px">${profs.length} professors</span>
+            </h3>
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+                <thead>
+                  <tr style="border-bottom:2px solid var(--color-vora)">
+                    <th style="text-align:left;padding:0.4rem 0.6rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--color-text-suau)">Professor/a</th>
+                    <th style="text-align:left;padding:0.4rem 0.6rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--color-text-suau)">Correu electrònic</th>
+                    <th style="text-align:left;padding:0.4rem 0.6rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--color-text-suau)">Atenció a famílies</th>
+                  </tr>
+                </thead>
+                <tbody>${files}</tbody>
+              </table>
+            </div>
+          </div>`;
+      });
+
+      contenidor.innerHTML = html || '<p style="color:var(--color-text-suau)">No s\'han trobat resultats.</p>';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderitzarHoraris('');
+      document.getElementById('cerca-prof').addEventListener('input', e => {
+        renderitzarHoraris(e.target.value);
+      });
+    });
+  </script>
 </body>
 </html>

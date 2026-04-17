@@ -15,6 +15,7 @@ const DEPARTAMENTS = [
     icona: '🧭',
     grup: 'eso-bat',
     cap: 'Jaime Pascual Salom',
+    desc: 'Orientadors especialitzats per nivells (1r–2n ESO, 3r–4t ESO, Batxillerat, FP). Inclou psicòleg i personal de suport.',
     professors: [
       { nom: 'Cristina Vanesa Ariza López',      email: 'carizalopez@ibeducacio.eu',       horari: 'Dimecres 9:50–10:45' },
       { nom: 'Joan Bauzá Oliver',                email: 'jbauzaoliver@ibeducacio.eu',        horari: 'Dilluns 12:55–13:50' },
@@ -76,6 +77,7 @@ const DEPARTAMENTS = [
     icona: '🌍',
     grup: 'eso-bat',
     cap: 'Raquel Marquez Mota',
+    desc: 'Departament més gran del centre. Cobertura a tots els nivells d\'ESO i Batxillerat.',
     professors: [
       { nom: 'Catalina Elena Alves Bauzá',    email: 'calvesbauza@ibeducacio.eu',         horari: 'Dilluns 12:00–12:55' },
       { nom: 'Betel Salem Arqués Toro',        email: 'barquestoro@ibeducacio.eu',         horari: 'Dimecres 8:55–9:50' },
@@ -256,6 +258,7 @@ const DEPARTAMENTS = [
     icona: '📊',
     grup: 'fp',
     cap: 'Marga Payeras Ballester',
+    desc: 'Gestió Administrativa (CFGM), Màrqueting i Publicitat (CFGS), Gestió Administrativa i Finances (CFGS). Inclou sessions vespertines.',
     professors: [
       { nom: 'Maria Isabel Abad Ucles',       email: 'mabaducles@ibeducacio.eu',       horari: 'Divendres 12:00–12:55' },
       { nom: 'Bàrbara Adrover Pons',          email: 'badroverpons@ibeducacio.eu',     horari: 'Dimarts 11:05–12:00' },
@@ -278,6 +281,7 @@ const DEPARTAMENTS = [
     icona: '🍽️',
     grup: 'fp',
     cap: 'Antònia Maria Anglada Gomila',
+    desc: 'Cuina i Restauració (CFGB), Cuina i Gastronomia i Serveis en Restauració (CFGM), Direcció de Cuina i Gestió d\'Allotjaments Turístics (CFGS). Certificats de professionalitat en operacions bàsiques.',
     professors: [
       { nom: 'Antònia Maria Anglada Gomila', email: 'aangladagomila@ibeducacio.eu',   horari: 'Dimarts 19:00–19:55' },
       { nom: 'Lorena Cañas Lerma',           email: 'lcanaslerma@ibeducacio.eu',      horari: 'Dimarts 12:55–13:50' },
