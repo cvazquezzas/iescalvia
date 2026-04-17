@@ -895,6 +895,84 @@ tr:hover td { background: rgba(41,128,185,0.05); }
   .hero-botons { flex-direction: column; }
 }
 
+/* === DOCUMENTS INSTITUCIONALS === */
+.doc-grups { display: flex; flex-direction: column; gap: 2.5rem; }
+
+.doc-grup-titol {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-suau);
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--color-vora);
+  margin-bottom: 0.25rem;
+}
+
+.doc-llista { display: flex; flex-direction: column; }
+
+.doc-fila {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 0.25rem;
+  border-bottom: 1px solid var(--color-vora);
+  transition: background var(--transicio);
+}
+.doc-fila:last-child { border-bottom: none; }
+.doc-fila:hover { background: var(--color-fons); border-radius: var(--radius); }
+
+.doc-badge {
+  flex-shrink: 0;
+  width: 3.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.4rem;
+  border-radius: 6px;
+  line-height: 1.3;
+}
+.doc-badge-blau  { background: rgba(41,128,185,0.12); color: #1a6fa0; }
+.doc-badge-verd  { background: rgba(39,174,96,0.12);  color: #1e8449; }
+.doc-badge-taronja { background: rgba(230,126,34,0.12); color: #b7560d; }
+
+.doc-info { flex: 1; min-width: 0; }
+.doc-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 0.2rem;
+}
+.doc-info p {
+  font-size: 0.83rem;
+  color: var(--color-text-suau);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.doc-btn {
+  flex-shrink: 0;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid var(--color-secundari);
+  border-radius: var(--radius);
+  color: var(--color-secundari);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all var(--transicio);
+  text-decoration: none;
+}
+.doc-btn:hover {
+  background: var(--color-secundari);
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .doc-fila { flex-wrap: wrap; }
+  .doc-btn  { width: 100%; text-align: center; }
+}
+
 /* === BOTÓ TORNAR A DALT === */
 .boto-tornar-dalt {
   position: fixed;
