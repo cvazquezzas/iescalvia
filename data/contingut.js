@@ -12,7 +12,7 @@ const CENTRE = {
   lema:      "Aprenentatge, convivència i futur",
   adreca:    "Carrer de l'Escola, s/n — 07184 Calvià (Mallorca)",
   telefon:   "971 139 200",
-  email:     "ies.calvia@educacio.caib.es",
+  email:     "iescalvia@ibeducacio.eu",
   web:       "https://iescalvia.com",
   instagram: "https://www.instagram.com/repte_ies_calvia",
 
