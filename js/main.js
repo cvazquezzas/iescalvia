@@ -52,6 +52,26 @@ function renderitzarNoticies(contenidorId, maxItems, nomesDestacades) {
   `).join('');
 }
 
+/* --- Injectar dades del centre des de contingut.js --- */
+function injectarDadesCentre() {
+  if (typeof CENTRE === 'undefined') return;
+
+  document.querySelectorAll('[data-centre]').forEach(el => {
+    const key = el.dataset.centre;
+    if (CENTRE[key] !== undefined) el.textContent = CENTRE[key];
+  });
+
+  document.querySelectorAll('[data-centre-href]').forEach(el => {
+    const key = el.dataset.centreHref;
+    if (key === 'email') {
+      const subject = el.dataset.emailSubject;
+      el.href = `mailto:${CENTRE.email}${subject ? '?subject=' + encodeURIComponent(subject) : ''}`;
+    } else if (key === 'telefon') {
+      el.href = `tel:${CENTRE.telefon.replace(/\s/g, '')}`;
+    }
+  });
+}
+
 /* --- Sistema de pestanyes (tabs) --- */
 function inicialitzarTabs() {
   const botons = document.querySelectorAll('.tab-btn');
@@ -180,6 +200,7 @@ window.__includesReady.then(function () {
   renderitzarNoticies('noticies-totes', null, false);
   renderitzarXifres('xifres-contenidor');
   renderitzarContacte('contacte-contenidor');
+  injectarDadesCentre();
   inicialitzarTabs();
 
   /* Activar tab si la URL té hash (ex: estudis.html#tab-eso) */
