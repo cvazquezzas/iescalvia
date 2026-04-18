@@ -175,17 +175,17 @@ window.__includesReady.then(function () {
   }, { passive: true });
   boto.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  /* Activar tab si la URL té hash (ex: estudis.html#tab-eso) */
-  const hash = window.location.hash;
-  if (hash) {
-    const btn = document.querySelector(`.tab-btn[data-tab="${hash.slice(1)}"]`);
-    if (btn) btn.click();
-  }
-
   /* Renderitzar contingut dinàmic */
   renderitzarNoticies('noticies-inici', 6, false);
   renderitzarNoticies('noticies-totes', null, false);
   renderitzarXifres('xifres-contenidor');
   renderitzarContacte('contacte-contenidor');
   inicialitzarTabs();
+
+  /* Activar tab si la URL té hash (ex: estudis.html#tab-eso) */
+  const hash = window.location.hash;
+  if (hash) {
+    const btn = document.querySelector(`.tab-btn[data-tab="${hash.slice(1)}"]`);
+    if (btn) btn.click();
+  }
 });
