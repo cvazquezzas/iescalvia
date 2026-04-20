@@ -135,46 +135,37 @@
     .badge-activitat { background: rgba(41,128,185,0.12); color: #1a5276; }
     .badge-vacances { background: rgba(155,89,182,0.12); color: #6c3483; }
 
-    /* === IFRAME SHAREPOINT === */
-    .sharepoint-bloc {
+    /* === ACCÉS CALENDARI EXTERN === */
+    .calendari-extern {
       background: var(--color-blanc);
       border-radius: var(--radius-gran);
       box-shadow: var(--ombra-card);
       border: 1px solid var(--color-vora);
-      overflow: hidden;
-    }
-    .sharepoint-cap {
-      background: var(--color-primari);
-      color: white;
-      padding: 1rem 1.5rem;
+      padding: 2.5rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      gap: 2rem;
       flex-wrap: wrap;
     }
-    .sharepoint-cap h3 { color: white; margin: 0; font-size: 1rem; }
-    .sharepoint-cap p  { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin: 0; }
-    .sharepoint-iframe-wrap {
-      position: relative;
-      width: 100%;
-      height: 560px;
-      background: var(--color-fons);
+    .calendari-extern-icona {
+      font-size: 3.5rem;
+      line-height: 1;
+      flex-shrink: 0;
     }
-    .sharepoint-iframe-wrap iframe {
-      width: 100%; height: 100%;
-      border: none;
-      display: block;
-    }
-    .sharepoint-iframe-wrap iframe { display: block; }
+    .calendari-extern-text { flex: 1; min-width: 200px; }
+    .calendari-extern-text h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+    .calendari-extern-text p  { margin: 0; color: var(--color-text-suau); font-size: 0.9rem; }
+    .calendari-extern-accio { flex-shrink: 0; }
 
     @media (max-width: 768px) {
       .timeline { padding-left: 1.25rem; }
       .timeline-mes::before { left: -1.25rem; }
       .timeline-event::before { left: -1rem; }
       .event-data-col { min-width: 85px; font-size: 0.75rem; }
-      .sharepoint-iframe-wrap { height: 420px; }
       .timeline-event { flex-wrap: wrap; gap: 0.4rem; }
+      .calendari-extern { flex-direction: column; text-align: center; }
+      .calendari-extern-accio { width: 100%; }
+      .calendari-extern-accio .btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -207,26 +198,18 @@
         </p>
       </div>
 
-      <div class="sharepoint-bloc" style="margin-bottom:3rem">
-        <div class="sharepoint-cap">
-          <div>
-            <h3>📅 Calendari IES Calvià</h3>
-            <p>Font: SharePoint · ibeducacio.eu — s'actualitza en temps real</p>
-          </div>
+      <div class="calendari-extern" style="margin-bottom:3rem">
+        <div class="calendari-extern-icona">📅</div>
+        <div class="calendari-extern-text">
+          <h3>Calendari IES Calvià</h3>
+          <p>El calendari d'activitats i esdeveniments del centre s'actualitza en temps real a través de SharePoint (ibeducacio.eu). Obre'l directament al teu navegador per veure les últimes novetats.</p>
+        </div>
+        <div class="calendari-extern-accio">
           <a href="https://ibeducacio-my.sharepoint.com/:l:/g/personal/iescalvia_ibeducacio_eu/FDF0TQ8ry7tFpsAQ5LjO3TABbWbpnRtT_ybN1CbC0rH2YQ?e=0GYL8T"
              target="_blank" rel="noopener"
-             class="btn btn-contorn"
-             style="font-size:0.82rem;padding:0.4rem 0.9rem;white-space:nowrap">
-            Obrir en nova finestra ↗
+             class="btn btn-primari">
+            Obrir calendari ↗
           </a>
-        </div>
-        <div class="sharepoint-iframe-wrap">
-          <iframe
-            src="https://ibeducacio-my.sharepoint.com/:l:/g/personal/iescalvia_ibeducacio_eu/FDF0TQ8ry7tFpsAQ5LjO3TABbWbpnRtT_ybN1CbC0rH2YQ?e=0GYL8T"
-            title="Calendari IES Calvià (SharePoint)"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation">
-          </iframe>
         </div>
       </div>
 
