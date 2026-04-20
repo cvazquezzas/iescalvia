@@ -195,6 +195,10 @@ window.__includesReady.then(function () {
   }, { passive: true });
   boto.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+  /* Any actual al peu de pàgina */
+  const anyEl = document.getElementById('peu-any');
+  if (anyEl) anyEl.textContent = new Date().getFullYear();
+
   /* Renderitzar contingut dinàmic */
   renderitzarNoticies('noticies-inici', 6, false);
   renderitzarNoticies('noticies-totes', null, false);
