@@ -204,9 +204,13 @@ window.__includesReady.then(function () {
   inicialitzarTabs();
 
   /* Activar tab si la URL té hash (ex: estudis.html#tab-eso) */
-  const hash = window.location.hash;
-  if (hash) {
-    const btn = document.querySelector(`.tab-btn[data-tab="${hash.slice(1)}"]`);
-    if (btn) btn.click();
+  function activarTabPerHash() {
+    const hash = window.location.hash;
+    if (hash) {
+      const btn = document.querySelector(`.tab-btn[data-tab="${hash.slice(1)}"]`);
+      if (btn) btn.click();
+    }
   }
+  activarTabPerHash();
+  window.addEventListener('hashchange', activarTabPerHash);
 });
