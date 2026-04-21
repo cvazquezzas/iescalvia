@@ -22,10 +22,14 @@ const CENTRE = {
   ],
 
   equip_directiu: [
-    { carrec: "Director/a",           nom: "—" },
-    { carrec: "Cap d'Estudis",        nom: "—" },
-    { carrec: "Secretari/a",          nom: "—" },
-    { carrec: "Cap d'Estudis de FP",  nom: "—" }
+    { carrec: "Director",                                   nom: "Enrique Sánchez Nievas",   email: "esancheznievas@ibeducacio.eu" },
+    { carrec: "Cap d'estudis",                              nom: "Marga Miralles Sastre",    email: "mmirallessastre@ibeducacio.eu" },
+    { carrec: "Secretari",                                  nom: "Álvaro Muñoz Oliva",       email: "amunozoliva@ibeducacio.eu" },
+    { carrec: "Cap d'estudis adjunta (1r i 2n ESO)",        nom: "Susana Marí Soto",         email: "smarisoto@ibeducacio.eu" },
+    { carrec: "Cap d'estudis adjunta (3r ESO i 1r BAT)",    nom: "Álex Gómez Keegan",        email: "agomezkeegan@ibeducacio.eu" },
+    { carrec: "Cap d'estudis adjunta (4t ESO i 2n BAT)",    nom: "Elisa Ceballos Lliteras",  email: "eceballoslliteras@ibeducacio.eu" },
+    { carrec: "Cap d'estudis adjunta (FP Adm. i Comerç)",   nom: "Sarah Alonso Frau",        email: "salonsofrau@ibeducacio.eu" },
+    { carrec: "Cap d'estudis adjunta (FP Hoteleria)",       nom: "Marta Esteve Esteve",      email: "mesteveesteve@ibeducacio.eu" }
   ],
 
   departaments: [
