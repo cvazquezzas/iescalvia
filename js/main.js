@@ -162,6 +162,16 @@ window.__includesReady.then(function () {
       });
     });
 
+    /* Tancar el menú mòbil en fer clic a un enllaç del submenú */
+    menu.querySelectorAll('.submenu a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('obert');
+        hamburguesa.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+        document.querySelectorAll('.submenu').forEach(s => s.classList.remove('obert'));
+      });
+    });
+
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         menu.classList.remove('obert');
