@@ -835,11 +835,8 @@ tr:hover td { background: rgba(41,128,185,0.05); }
   .peu-graella { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 768px) {
-  :root { --font-grandaria-base: 15px; }
-  .contenidor { padding: 0 var(--espai-md); }
-
-  /* Nav mòbil */
+/* Nav hamburguesa: actiu a partir de 1050px (el menú horitzontal no hi cap) */
+@media (max-width: 1050px) {
   .nav-hamburguesa { display: flex; }
   .nav-menu {
     display: none;
@@ -870,6 +867,11 @@ tr:hover td { background: rgba(41,128,185,0.05); }
   .submenu.obert { display: block; }
   .submenu a { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
   .submenu a:hover { background: rgba(255,255,255,0.1); color: white; }
+}
+
+@media (max-width: 768px) {
+  :root { --font-grandaria-base: 15px; }
+  .contenidor { padding: 0 var(--espai-md); }
 
   /* Hero */
   .hero { padding: 2.5rem 0; }
