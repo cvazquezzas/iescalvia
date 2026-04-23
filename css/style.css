@@ -226,6 +226,9 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-primari);
 }
 
+/* Spans per abreviar text al menú compacte */
+.nav-text-curt { display: none; }
+
 /* Submenú desplegable */
 .submenu {
   display: none;
@@ -835,8 +838,18 @@ tr:hover td { background: rgba(41,128,185,0.05); }
   .peu-graella { grid-template-columns: 1fr 1fr; }
 }
 
-/* Nav hamburguesa: actiu a partir de 1050px (el menú horitzontal no hi cap) */
-@media (max-width: 1050px) {
+/* Menú horitzontal compacte: 769px–1050px */
+@media (min-width: 769px) and (max-width: 1050px) {
+  .nav-principal .nav-interior { padding: 0 1rem; }
+  .nav-menu { gap: 0; }
+  .nav-link { font-size: 0.78rem; padding: 0.4rem 0.55rem; }
+  .nav-item-inici { display: none; }
+  .nav-text-curt { display: inline; }
+  .nav-text-llarg { display: none; }
+}
+
+/* Nav hamburguesa: mòbil (fins a 768px) */
+@media (max-width: 768px) {
   .nav-hamburguesa { display: flex; }
   .nav-menu {
     display: none;
@@ -855,6 +868,7 @@ tr:hover td { background: rgba(41,128,185,0.05); }
   }
   .nav-menu.obert { display: flex; }
   .nav-link { padding: 0.75rem 1rem; border-radius: var(--radius); }
+  .nav-link.nav-especial { margin-top: 0.5rem; }
   .submenu {
     display: none;
     position: static;

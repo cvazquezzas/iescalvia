@@ -155,7 +155,7 @@ window.__includesReady.then(function () {
       const sub  = item.querySelector('.submenu');
       if (!sub || !link) return;
       link.addEventListener('click', e => {
-        if (window.innerWidth <= 1050) {
+        if (window.innerWidth <= 768) {
           e.preventDefault();
           sub.classList.toggle('obert');
         }
@@ -163,7 +163,7 @@ window.__includesReady.then(function () {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1050) {
+      if (window.innerWidth > 768) {
         menu.classList.remove('obert');
         document.body.style.overflow = '';
         document.querySelectorAll('.submenu').forEach(s => s.classList.remove('obert'));
