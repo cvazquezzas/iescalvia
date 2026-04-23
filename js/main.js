@@ -42,7 +42,7 @@ function renderitzarNoticies(contenidorId, maxItems, nomesDestacades) {
       <div class="noticia-cos">
         <div class="noticia-meta">
           <span class="noticia-categoria">${n.categoria}</span>
-          <span class="noticia-data">📅 ${n.data}</span>
+          <span class="noticia-data"><i class="fa-regular fa-calendar-days"></i> ${n.data}</span>
         </div>
         <h3>${n.titol}</h3>
         <p>${n.resum}</p>
@@ -103,16 +103,16 @@ function renderitzarContacte(contenidorId) {
     <div class="graella-2 graella-cards">
       <div class="card">
         <div class="card-cos">
-          <div class="card-icona">📍</div>
+          <div class="card-icona"><i class="fa-solid fa-location-dot"></i></div>
           <h3>Adreça i telèfon</h3>
           <p>${adreca}</p>
-          <p>📞 <a href="tel:${telefon.replace(/\s/g,'')}">${telefon}</a></p>
-          <p>✉️ <a href="mailto:${email}">${email}</a></p>
+          <p><i class="fa-solid fa-phone"></i> <a href="tel:${telefon.replace(/\s/g,'')}">${telefon}</a></p>
+          <p><i class="fa-solid fa-envelope"></i> <a href="mailto:${email}">${email}</a></p>
         </div>
       </div>
       <div class="card">
         <div class="card-cos">
-          <div class="card-icona">🕐</div>
+          <div class="card-icona"><i class="fa-regular fa-clock"></i></div>
           <h3>Horari de secretaria</h3>
           <div class="taula-responsive">
             <table><tbody>${horariHTML}</tbody></table>

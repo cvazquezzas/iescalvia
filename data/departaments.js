@@ -12,7 +12,7 @@ const DEPARTAMENTS = [
   {
     id: 'orientacio',
     nom: 'Orientació',
-    icona: '🧭',
+    icona: '<i class="fa-solid fa-compass"></i>',
     grup: 'eso-bat',
     cap: 'Jaime Pascual Salom',
     desc: 'Orientadors especialitzats per nivells (1r–2n ESO, 3r–4t ESO, Batxillerat, FP). Inclou psicòleg i personal de suport.',
@@ -38,7 +38,7 @@ const DEPARTAMENTS = [
   {
     id: 'castella',
     nom: 'Castellà: Llengua i Literatura',
-    icona: '📖',
+    icona: '<i class="fa-solid fa-book-open"></i>',
     grup: 'eso-bat',
     cap: 'Helena Ferrà Cerdà',
     professors: [
@@ -56,7 +56,7 @@ const DEPARTAMENTS = [
   {
     id: 'catala',
     nom: 'Català: Llengua i Literatura',
-    icona: '📗',
+    icona: '<i class="fa-solid fa-book"></i>',
     grup: 'eso-bat',
     cap: 'Maria Serrano Pujol',
     professors: [
@@ -74,7 +74,7 @@ const DEPARTAMENTS = [
   {
     id: 'angles',
     nom: 'Anglès i Alemany',
-    icona: '🌍',
+    icona: '<i class="fa-solid fa-earth-europe"></i>',
     grup: 'eso-bat',
     cap: 'Raquel Marquez Mota',
     desc: 'Departament més gran del centre. Cobertura a tots els nivells d\'ESO i Batxillerat.',
@@ -104,7 +104,7 @@ const DEPARTAMENTS = [
   {
     id: 'geografia',
     nom: 'Geografia i Història',
-    icona: '🗺️',
+    icona: '<i class="fa-solid fa-map"></i>',
     grup: 'eso-bat',
     cap: 'Miquel Puigserver Sales',
     professors: [
@@ -124,7 +124,7 @@ const DEPARTAMENTS = [
   {
     id: 'musica',
     nom: 'Música',
-    icona: '🎵',
+    icona: '<i class="fa-solid fa-music"></i>',
     grup: 'eso-bat',
     cap: 'Lidón Soligó Prades',
     professors: [
@@ -138,7 +138,7 @@ const DEPARTAMENTS = [
   {
     id: 'dibuix',
     nom: 'Dibuix',
-    icona: '🎨',
+    icona: '<i class="fa-solid fa-palette"></i>',
     grup: 'eso-bat',
     cap: 'Margalida Bal·le Coll',
     professors: [
@@ -152,7 +152,7 @@ const DEPARTAMENTS = [
   {
     id: 'filosofia',
     nom: 'Filosofia, Economia i Llatí',
-    icona: '💭',
+    icona: '<i class="fa-solid fa-comment-dots"></i>',
     grup: 'eso-bat',
     cap: 'Rubén Esteve Maurell',
     professors: [
@@ -169,7 +169,7 @@ const DEPARTAMENTS = [
   {
     id: 'matematiques',
     nom: 'Matemàtiques',
-    icona: '🔢',
+    icona: '<i class="fa-solid fa-calculator"></i>',
     grup: 'eso-bat',
     cap: 'Laila Al-Hasani Maturano',
     professors: [
@@ -192,7 +192,7 @@ const DEPARTAMENTS = [
   {
     id: 'fisica',
     nom: 'Física i Química',
-    icona: '⚗️',
+    icona: '<i class="fa-solid fa-flask"></i>',
     grup: 'eso-bat',
     cap: 'Agostina Ailén Barta Guevara',
     professors: [
@@ -207,7 +207,7 @@ const DEPARTAMENTS = [
   {
     id: 'biologia',
     nom: 'Biologia i Geologia',
-    icona: '🧬',
+    icona: '<i class="fa-solid fa-dna"></i>',
     grup: 'eso-bat',
     cap: 'Raquel Martí Peirona',
     professors: [
@@ -224,7 +224,7 @@ const DEPARTAMENTS = [
   {
     id: 'tecnologia',
     nom: 'Tecnologia',
-    icona: '⚙️',
+    icona: '<i class="fa-solid fa-gear"></i>',
     grup: 'eso-bat',
     cap: 'Elvira Lopez Navarro',
     professors: [
@@ -241,7 +241,7 @@ const DEPARTAMENTS = [
   {
     id: 'ef',
     nom: 'Educació Física',
-    icona: '🏃',
+    icona: '<i class="fa-solid fa-person-running"></i>',
     grup: 'eso-bat',
     cap: 'Miquel Sureda Rosselló',
     professors: [
@@ -255,7 +255,7 @@ const DEPARTAMENTS = [
   {
     id: 'administracio',
     nom: 'Administració i Comerç',
-    icona: '📊',
+    icona: '<i class="fa-solid fa-chart-bar"></i>',
     grup: 'fp',
     cap: 'Marga Payeras Ballester',
     desc: 'Gestió Administrativa (CFGM), Màrqueting i Publicitat (CFGS), Gestió Administrativa i Finances (CFGS). Inclou sessions vespertines.',
@@ -278,7 +278,7 @@ const DEPARTAMENTS = [
   {
     id: 'hostaleria',
     nom: 'Hostaleria i Turisme',
-    icona: '🍽️',
+    icona: '<i class="fa-solid fa-utensils"></i>',
     grup: 'fp',
     cap: 'Antònia Maria Anglada Gomila',
     desc: 'Cuina i Restauració (CFGB), Cuina i Gastronomia i Serveis en Restauració (CFGM), Direcció de Cuina i Gestió d\'Allotjaments Turístics (CFGS). Certificats de professionalitat en operacions bàsiques.',

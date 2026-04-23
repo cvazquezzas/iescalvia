@@ -1002,3 +1002,18 @@ tr:hover td { background: rgba(41,128,185,0.05); }
 .boto-tornar-dalt:hover {
   background: var(--color-secundari);
 }
+
+/* === ICONES FONT AWESOME — ajustos globals === */
+.card-icona i,
+.card-icona .fi { color: inherit; }
+
+/* Alineació vertical d'icones inline amb text */
+.avis i, .info-box i,
+.peu-contacte i,
+.baner-info i { vertical-align: -0.1em; }
+
+/* Mida de bandera als botons de l'índex de projectes */
+.btn .fi { vertical-align: middle; font-size: 1em; }
+
+/* Bandera decorativa Erasmus hero */
+.erasmus-deco { display: inline-block; }
